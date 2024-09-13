@@ -8,10 +8,22 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        gilroyRegular: ["GilroyRegular", "sans-serif"],
+        gilroyBold: ["GilroyBold", "sans-serif"],
+        gilroySemibold: ["GilroySemibold", "sans-serif"],
+        gilroyMedium: ["GilroyMedium", "sans-serif"],
+        gilroyLight: ["GilroyLight", "sans-serif"],
+        gilroyThin: ["GilroyThin", "sans-serif"],
+      },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        tertiary: "var(--tertiary)",
+        grayText: "var(--text)",
       },
     },
   },
