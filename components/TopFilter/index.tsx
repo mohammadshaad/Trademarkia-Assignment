@@ -19,7 +19,7 @@ const index = () => {
           </div>
         </div>
         <div className='flex items-center justify-center gap-4'>
-          <div className='flex gap-2 items-center justify-center text-xs font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-6 py-3 cursor-pointer'>
+          <div className='flex gap-1 items-center justify-center text-xs font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer'>
             <Image src={filter} className='w-[18px]' alt='' />
             Filter
           </div>
