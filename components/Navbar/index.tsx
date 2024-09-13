@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-import logo from '@/public/logos/logo.svg';
+import logo from '@/public/logos/logo.png';
 import search from '@/public/icons/search.svg';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -12,9 +13,9 @@ const Navbar = () => {
 
       <div className='flex items-center justify-center gap-2'>
         <div className='flex items-center justify-center p-2 border border-[#D4D4D4] rounded-xl px-4 py-2 md:w-[600px]'>
-          <div className='p-1'>
+          <Link href="/" className='p-1'>
             <Image src={search} alt="Search" className='w-7' />
-          </div>
+          </Link>
           <input
             type="text"
             placeholder='Search Trademark Here eg. Mickey Mouse '
