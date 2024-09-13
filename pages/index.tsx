@@ -1,6 +1,6 @@
 import Image from "next/image";
 import localFont from "next/font/local";
-import Logo from "@/components/Logo";
+import Navbar from "@/components/Navbar";
 
 const gilroyRegular = localFont({
   src: "./fonts/Gilroy/Gilroy-Regular.ttf",
@@ -14,8 +14,8 @@ const gilroyBold = localFont({
 
 export default function Home() {
   return (
-    <div className="">
-      <Logo />
+    <div className="w-full">
+      <Navbar />
       <div className={gilroyBold.className}>
         Hello World!
       </div>
