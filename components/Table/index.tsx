@@ -69,7 +69,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                     <div className="text-base font-gilroyMedium text-textBlack">
                                         Computer services, Social Media, Networking, Virtual Communities, Community
                                     </div>
-                                    <div className="flex items-start gap-2">
+                                    <div className="flex items-start gap-2 flex-wrap">
                                         {data.class.split(',').map((item, index) => (
                                             <div key={index} className="flex items-center gap-1">
                                                 <Image src={flask} alt="" className="w-5" />
