@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import logo from '@/public/logos/logo.svg';
 import search from '@/public/icons/search.svg';
 import Link from 'next/link';
-import markImage from '@/public/images/mark-skeleton.svg';
+import { SearchResult, ApiResponseItem } from '@/types/types';
 
 interface NavbarProps {
-  onSearch: (result: any) => void;
+  onSearch: (result: SearchResult[]) => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
@@ -15,57 +15,36 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
   const [error, setError] = useState<string | null>(null); 
 
   const handleSearch = async () => {
-    const data = {
-      input_query: query,
-      input_query_type: "",
-      sort_by: "default",
-      status: [],
-      exact_match: false,
-      date_query: false,
-      owners: [],
-      attorneys: [],
-      law_firms: [],
-      mark_description_description: [],
-      classes: [],
-      page: 1,
-      rows: 10,
-      sort_order: "desc",
-      states: [],
-      counties: []
-    };
-
-    setLoading(true);  
-    setError(null);   
+    setLoading(true);
+    setError(null);
 
     try {
-      const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
+      const response = await fetch(`YOUR_API_ENDPOINT?q=${query}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch data: ${response.statusText}`);
       }
 
       const result = await response.json();
-      const formattedResults = result.body.hits.hits.map((item: any) => ({
+      const formattedResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
-        date: new Date(item._source.registration_date * 1000).toLocaleDateString(), 
+        date: new Date(item._source.registration_date * 1000).toLocaleDateString(),
         class: item._source.class_codes.join(', '),
       }));
 
-      onSearch(formattedResults); 
-    } catch (error: any) {
-      setError(error.message); 
+      onSearch(formattedResults);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError('An unknown error occurred');
+      }
     } finally {
-      setLoading(false);  
+      setLoading(false);
     }
   };
+
 
   return (
     <div className='bg-[#F8FAFE] border-b-4 border-[#EAF1FF] w-full flex items-center justify-start gap-6'>

@@ -3,11 +3,13 @@ import Navbar from "@/components/Navbar";
 import Table from "@/components/Table";
 import TopFilter from "@/components/TopFilter";
 import SideFilter from "@/components/SideFilter";
+import { SearchResult } from '@/types/types'; 
+
 
 export default function Home() {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
-  const handleSearchResults = (data: any) => {
+  const handleSearchResults = (data: SearchResult[]) => {
     setSearchResults(data);
   };
 

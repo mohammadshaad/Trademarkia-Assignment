@@ -11,14 +11,8 @@ import Image from "next/image";
 import refresh from '@/public/icons/refresh.svg';
 import flask from '@/public/icons/flask.svg';
 import markImg from '@/public/images/mark-skeleton.svg';
+import { SearchResult } from '@/types/types';
 
-interface SearchResult {
-    name: string;
-    company: string;
-    markId: string;
-    date: string;
-    class: string;
-}
 
 export default function Table({ searchResults }: { searchResults: SearchResult[] }) {
     return (
