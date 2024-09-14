@@ -4,6 +4,7 @@ import logo from '@/public/logos/logo.svg';
 import search from '@/public/icons/search.svg';
 import Link from 'next/link';
 import { SearchResult, ApiResponseItem } from '@/types/types';
+import { format, fromUnixTime } from 'date-fns';
 
 interface NavbarProps {
   onSearch: (result: SearchResult[]) => void;
@@ -56,7 +57,10 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
-        date: new Date(item._source.registration_date * 1000).toLocaleDateString(),
+        registration_date: format(fromUnixTime(item._source.registration_date), 'd MMM yyyy'),
+        status_date: format(fromUnixTime(item._source.status_date), 'd MMM yyyy'),
+        renewal_date: format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy'),
+        filing_date: format(fromUnixTime(item._source.filing_date), 'd MMM yyyy'),
         class: item._source.class_codes.join(', '),
       }));
 

@@ -40,7 +40,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                     </div>
                                     <div className="flex flex-col items-start justify-center h-full">
                                         <div className="font-gilroySemibold text-sm text-textBlack">{data.markId}</div>
-                                        <div className="text-xs font-gilroyMedium text-textBlack">{data.date}</div>
+                                        <div className="text-xs font-gilroyMedium text-textBlack">{data.registration_date}</div>
                                     </div>
                                 </div>
                             </TableCell>
@@ -56,7 +56,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                         <div className="text-xs text-textBlack">on
                                             {" "}
                                             <span className="font-gilroyBold">
-                                                {data.date}
+                                                {data.filing_date}
                                             </span>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                         <div className="">
                                             <Image src={refresh} alt="" className="w-4" />
                                         </div>
-                                        <div className="text-xs font-gilroyBold text-textBlack">{data.date}</div>
+                                        <div className="text-xs font-gilroyBold text-textBlack">{data.renewal_date}</div>
                                     </div>
                                 </div>
                             </TableCell>

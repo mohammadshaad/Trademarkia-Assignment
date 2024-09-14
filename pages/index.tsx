@@ -17,7 +17,7 @@ export default function Home() {
     <div className="w-full">
       <Navbar onSearch={handleSearchResults} />
       <TopFilter />
-      <div className="flex items-start justify-between w-full px-10">
+      <div className="flex items-start justify-between w-full px-10 pb-20">
         <Table searchResults={searchResults} />
         <SideFilter />
       </div>
