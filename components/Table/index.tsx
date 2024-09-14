@@ -1,9 +1,7 @@
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
@@ -84,12 +82,12 @@ export default function index() {
                                 </div>
                             </TableCell>
                             <TableCell className="">
-                                <div className="flex flex-col items-start justify-between gap-8">
+                                <div className="flex flex-col items-start justify-between gap-4">
                                     <div className="text-base font-gilroyMedium text-textBlack">
                                         Computer services, Social Media, Networking, Virtual Communities, Community
                                     </div>
                                     <div className="flex items-center justify-center gap-1 font-gilroyBold">
-                                        <Image src={flask} alt="" className="w-6" />
+                                        <Image src={flask} alt="" className="w-5" />
                                         <div>
                                             Class {data.class}
                                         </div>
