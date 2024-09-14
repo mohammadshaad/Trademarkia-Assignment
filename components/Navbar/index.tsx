@@ -3,11 +3,23 @@ import React, { useState } from 'react';
 import logo from '@/public/logos/logo.svg';
 import search from '@/public/icons/search.svg';
 import Link from 'next/link';
-import { SearchResult, ApiResponseItem } from '@/types/types';
+import { SearchResult } from '@/types/SearchResult';
+import { ApiResponseItem } from '@/types/ApiResponseItem';
 import { format, fromUnixTime } from 'date-fns';
 
+interface AggregationItem {
+  name: string;
+  count: number;
+}
+
 interface NavbarProps {
-  onSearch: (result: SearchResult[], query: string) => void; // Pass search query to parent
+  onSearch: (
+    result: SearchResult[],
+    query: string,
+    owners?: AggregationItem[],
+    lawFirms?: AggregationItem[],
+    attorneys?: AggregationItem[]
+  ) => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
@@ -53,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
 
       const result = await response.json();
 
-      const formattedResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
+      const formattedMarkResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
@@ -64,7 +76,22 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
         class: item._source.class_codes.join(', '),
       }));
 
-      onSearch(formattedResults, query); // Pass search query to parent
+      const owners = result.body.aggregations.current_owners?.buckets.map((bucket: { key: string; doc_count: number }) => ({
+        name: bucket.key,
+        count: bucket.doc_count,
+      }));
+
+      const lawFirms = result.body.aggregations.law_firms?.buckets.map((bucket: { key: string; doc_count: number }) => ({
+        name: bucket.key,
+        count: bucket.doc_count,
+      }));
+
+      const attorneys = result.body.aggregations.attorneys?.buckets.map((bucket: { key: string; doc_count: number }) => ({
+        name: bucket.key,
+        count: bucket.doc_count,
+      }));
+
+      onSearch(formattedMarkResults, query, owners, lawFirms, attorneys);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);

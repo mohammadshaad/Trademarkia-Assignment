@@ -11,7 +11,7 @@ import Image from "next/image";
 import refresh from '@/public/icons/refresh.svg';
 import flask from '@/public/icons/flask.svg';
 import markImg from '@/public/images/mark-skeleton.svg';
-import { SearchResult } from '@/types/types';
+import { SearchResult } from '@/types/SearchResult';
 
 export default function Table({ searchResults }: { searchResults: SearchResult[] }) {
     return (
