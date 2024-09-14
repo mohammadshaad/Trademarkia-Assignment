@@ -8,7 +8,7 @@ export default function Home() {
     <div className="w-full">
       <Navbar />
       <TopFilter />
-      <div className="flex items-center justify-between w-full px-10">
+      <div className="flex items-start justify-between w-full px-10">
         <Table />
         <SideFilter />
       </div>

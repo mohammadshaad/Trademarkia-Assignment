@@ -2,13 +2,14 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import search from '@/public/icons/search.svg';
 import { Checkbox } from "@/components/ui/checkbox"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const Index = () => {
-  const [selectedOption, setSelectedOption] = useState('Owners'); 
+  const [selectedOption, setSelectedOption] = useState('Owners');
 
   return (
     <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
-      {/* Status section */}
+
       <div className='flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-start justify-center flex-col gap-2 w-full'>
           <div className='text-base font-gilroyBold text-textBlack'>Status</div>
@@ -36,7 +37,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Search Section */}
       <div className='flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-start justify-center flex-col gap-4 w-full'>
           <div className='flex items-center justify-start w-full gap-4'>
@@ -76,7 +76,7 @@ const Index = () => {
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="terms"
-                className='w-4' />
+                className='' />
               <label
                 htmlFor="terms"
                 className="text-sm text-[#4380EC] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -84,7 +84,33 @@ const Index = () => {
                 Tesla, Inc.
               </label>
             </div>
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="terms"
+                className='' />
+              <label
+                htmlFor="terms"
+                className="text-sm text-[#313131] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                Tesla, Inc.
+              </label>
+            </div>
           </div>
+
+        </div>
+      </div>
+      <div className='mt-4 flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
+        <div className='flex items-center justify-start w-full font-gilroyBold'>
+          Display
+        </div>
+        <div className='flex items-center justify-center w-full'>
+          <Tabs defaultValue="account" className="w-full font-gilroyBold ">
+            <TabsList>
+              <TabsTrigger value="account">Grid View</TabsTrigger>
+              <TabsTrigger value="password">List View</TabsTrigger>
+            </TabsList>
+          </Tabs>
+
         </div>
       </div>
     </div>
