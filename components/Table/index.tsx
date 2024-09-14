@@ -14,6 +14,12 @@ import markImg from '@/public/images/mark-skeleton.svg';
 import { SearchResult } from '@/types/SearchResult';
 
 export default function Table({ searchResults }: { searchResults: SearchResult[] }) {
+    // Updated maxLength to 50 for better truncation of description
+    const truncateText = (text: string, maxLength: number) => {
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength) + '...';
+    };
+
     return (
         <div className="flex items-center justify-start">
             <UITable>
@@ -67,7 +73,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                             <TableCell>
                                 <div className="flex flex-col items-start justify-between gap-4">
                                     <div className="text-base font-gilroyMedium text-textBlack">
-                                        Computer services, Social Media, Networking, Virtual Communities, Community
+                                        {truncateText(data.description, 50)}
                                     </div>
                                     <div className="flex items-start gap-2 flex-wrap">
                                         {data.class.split(',').map((item, index) => (

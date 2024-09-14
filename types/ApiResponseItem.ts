@@ -8,6 +8,7 @@ export interface ApiResponseItem {
       renewal_date: number;
       filing_date: number;
       class_codes: string[];
+      mark_description_description: string[];
     };
     aggregation: {
   

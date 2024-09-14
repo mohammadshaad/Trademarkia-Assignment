@@ -2,6 +2,7 @@ export interface SearchResult {
     name: string;
     company: string;
     markId: string;
+    description: string;
     registration_date: string;
     status_date: string;
     renewal_date: string;
