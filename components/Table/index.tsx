@@ -28,7 +28,7 @@ const datas = [
 
 export default function index() {
     return (
-        <div className="flex items-center justify-start px-10">
+        <div className="flex items-center justify-start ">
             <Table className="">
                 {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
                 <TableHeader className="font-gilroyBold">
