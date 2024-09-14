@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import search from '@/public/icons/search.svg';
+import { Checkbox } from "@/components/ui/checkbox"
 
 const Index = () => {
-  const [selectedOption, setSelectedOption] = useState(''); // Track the selected option
+  const [selectedOption, setSelectedOption] = useState('Owners'); 
 
   return (
     <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
@@ -69,6 +70,20 @@ const Index = () => {
               className='w-full focus:outline-none placeholder:text-[#313131] placeholder:text-sm placeholder:font-gilroyMedium font-gilroyMedium'
               placeholder={`Search ${selectedOption || '...'}`}
             />
+          </div>
+
+          <div className='flex flex-col items-start justify-center gap-2 p-2'>
+            <div className="flex items-center space-x-2">
+              <Checkbox
+                id="terms"
+                className='w-4' />
+              <label
+                htmlFor="terms"
+                className="text-sm text-[#4380EC] font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              >
+                Tesla, Inc.
+              </label>
+            </div>
           </div>
         </div>
       </div>
