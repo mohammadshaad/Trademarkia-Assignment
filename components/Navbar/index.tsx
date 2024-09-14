@@ -3,12 +3,16 @@ import React, { useState } from 'react';
 import logo from '@/public/logos/logo.svg';
 import search from '@/public/icons/search.svg';
 import Link from 'next/link';
+import markImage from '@/public/images/mark-skeleton.svg';
 
-const Navbar = () => {
-  const [query, setQuery] = useState(''); 
+interface NavbarProps {
+  onSearch: (result: any) => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
 
   const handleSearch = async () => {
-
     const data = {
       input_query: query,
       input_query_type: "",
@@ -38,7 +42,19 @@ const Navbar = () => {
       });
 
       const result = await response.json();
-      console.log('Search Results:', result);
+
+      const formattedResults = result.body.hits.hits.map((item: any) => ({
+        mark: {
+          markImg: {markImage},  
+        },
+        name: item._source.mark_identification,
+        company: item._source.current_owner,
+        markId: item._source.registration_number,
+        date: new Date(item._source.registration_date * 1000).toLocaleDateString(), 
+        class: item._source.class_codes.join(', '),
+      }));
+
+      onSearch(formattedResults); 
     } catch (error) {
       console.error('Error during search:', error);
     }
@@ -60,11 +76,11 @@ const Navbar = () => {
             placeholder='Search Trademark Here eg. Mickey Mouse '
             className="w-full bg-transparent outline-none text-lg ml-2 gilroy-regular placeholder:text-[#636363] placeholder:text-sm font-medium"
             value={query}
-            onChange={(e) => setQuery(e.target.value)} 
+            onChange={(e) => setQuery(e.target.value)}
           />
         </div>
         <button
-          onClick={handleSearch} 
+          onClick={handleSearch}
           className="font-gilroySemibold bg-primary hover:bg-blue-900 transition-all duration-200 font-bold text-sm text-white rounded-xl px-10 py-4 ml-2 gilroy-bold"
         >
           Search

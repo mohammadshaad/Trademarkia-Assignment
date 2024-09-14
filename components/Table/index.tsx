@@ -1,5 +1,5 @@
 import {
-    Table,
+    Table as UITable,
     TableBody,
     TableCell,
     TableHead,
@@ -7,30 +7,25 @@ import {
     TableRow,
 } from "@/components/ui/table"
 
-
-import markImg from '@/public/images/mark-skeleton.svg';
+import Image from "next/image";
 import refresh from '@/public/icons/refresh.svg';
 import flask from '@/public/icons/flask.svg';
 
-import Image from "next/image";
+interface SearchResult {
+    mark: {
+        markImg: string;
+    };
+    name: string;
+    company: string;
+    markId: string;
+    date: string;
+    class: string;
+}
 
-const datas = [
-    {
-        id: 1,
-        mark: { markImg },
-        name: "Meta Logo",
-        company: "FACEBOOK INC.",
-        markId: "88713620",
-        date: "26th Jan 2020",
-        class: "42"
-    },
-]
-
-export default function index() {
+export default function Table({ searchResults }: { searchResults: SearchResult[] }) {
     return (
         <div className="flex items-center justify-start ">
-            <Table className="">
-                {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
+            <UITable className="">
                 <TableHeader className="font-gilroyBold">
                     <TableRow className="">
                         <TableHead className="w-[200px]">Mark</TableHead>
@@ -40,8 +35,8 @@ export default function index() {
                     </TableRow>
                 </TableHeader>
                 <TableBody className="">
-                    {datas.map((data) => (
-                        <TableRow key={data.id} className="group !rounded-2xl h-full">
+                    {searchResults?.map((data, index) => (
+                        <TableRow key={index} className="group !rounded-2xl h-full">
                             <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
                                 <Image src={data.mark.markImg} alt="" className="w-40 my-3 mark-shadow" />
                             </TableCell>
@@ -97,13 +92,7 @@ export default function index() {
                         </TableRow>
                     ))}
                 </TableBody>
-                {/* <TableFooter>
-                    <TableRow>
-                        <TableCell colSpan={3}>Total</TableCell>
-                        <TableCell className="text-right">$2,500.00</TableCell>
-                    </TableRow>
-                </TableFooter> */}
-            </Table>
+            </UITable>
         </div>
     )
 }
