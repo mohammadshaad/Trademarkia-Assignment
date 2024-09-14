@@ -69,12 +69,14 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
-        registration_date: format(fromUnixTime(item._source.registration_date), 'd MMM yyyy'),
-        status_date: format(fromUnixTime(item._source.status_date), 'd MMM yyyy'),
-        renewal_date: format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy'),
-        filing_date: format(fromUnixTime(item._source.filing_date), 'd MMM yyyy'),
+        description: item._source.mark_description_description.join(', '),
+        registration_date: item._source.registration_date ? format(fromUnixTime(item._source.registration_date), 'd MMM yyyy') : 'N/A',
+        status_date: item._source.status_date ? format(fromUnixTime(item._source.status_date), 'd MMM yyyy') : 'N/A',
+        renewal_date: item._source.renewal_date ? format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy') : 'N/A',
+        filing_date: item._source.filing_date ? format(fromUnixTime(item._source.filing_date), 'd MMM yyyy') : 'N/A',
         class: item._source.class_codes.join(', '),
       }));
+      
 
       const owners = result.body.aggregations.current_owners?.buckets.map((bucket: { key: string; doc_count: number }) => ({
         name: bucket.key,
