@@ -10,11 +10,9 @@ import {
 import Image from "next/image";
 import refresh from '@/public/icons/refresh.svg';
 import flask from '@/public/icons/flask.svg';
+import markImg from '@/public/images/mark-skeleton.svg';
 
 interface SearchResult {
-    mark: {
-        markImg: string;
-    };
     name: string;
     company: string;
     markId: string;
@@ -38,7 +36,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                     {searchResults?.map((data, index) => (
                         <TableRow key={index} className="group !rounded-2xl h-full">
                             <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
-                                <Image src={data.mark.markImg} alt="" className="w-40 my-3 mark-shadow" />
+                                <Image src={markImg} alt="" className="w-40 my-3 mark-shadow" />
                             </TableCell>
                             <TableCell className="h-full">
                                 <div className="flex items-start justify-between flex-col h-full gap-12 ">
