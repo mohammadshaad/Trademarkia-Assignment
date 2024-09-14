@@ -72,7 +72,7 @@ const Index = () => {
             />
           </div>
 
-          <div className='flex flex-col items-start justify-center gap-2 p-2'>
+          <div className='flex flex-col items-start justify-center gap-2 px-2 py-1'>
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="terms"

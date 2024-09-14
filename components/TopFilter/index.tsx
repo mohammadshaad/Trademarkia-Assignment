@@ -6,21 +6,23 @@ import sort from '@/public/icons/sort.svg';
 
 interface TopFilterProps {
   onFilterClick: () => void;
-  isSideFilterVisible: boolean; // Add this prop
+  isSideFilterVisible: boolean;
+  searchQuery: string; // New prop for search query
+  resultsCount: number; // New prop for the number of results
 }
 
-const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible }) => {
+const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible, searchQuery, resultsCount }) => {
   return (
     <div className='px-10 py-8 w-full flex items-start justify-center flex-col'>
       <div className='flex items-center justify-start font-gilroyBold text-grayText'>
-        About {`x`} Trademarks found for &quot;{`y`}&quot;
+        About {resultsCount} Trademarks found for &quot;{searchQuery}&quot; {/* Display results count and search query */}
       </div>
       <hr className='w-full border-[1px] my-6' />
       <div className='flex items-center justify-between w-full'>
         <div className='flex items-center justify-start gap-4 font-gilroyBold text-grayText'>
           Also try searching for
           <div className='bg-tertiary px-6 py-1 border border-secondary text-secondary rounded-xl'>
-            {`y`}
+            {searchQuery}
           </div>
         </div>
         <div className='flex items-center justify-center gap-4'>

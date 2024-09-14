@@ -7,7 +7,7 @@ import { SearchResult, ApiResponseItem } from '@/types/types';
 import { format, fromUnixTime } from 'date-fns';
 
 interface NavbarProps {
-  onSearch: (result: SearchResult[]) => void;
+  onSearch: (result: SearchResult[], query: string) => void; // Pass search query to parent
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
         class: item._source.class_codes.join(', '),
       }));
 
-      onSearch(formattedResults);
+      onSearch(formattedResults, query); // Pass search query to parent
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);

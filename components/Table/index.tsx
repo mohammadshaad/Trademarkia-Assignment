@@ -74,7 +74,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                             <div key={index} className="flex items-center gap-1">
                                                 <Image src={flask} alt="" className="w-5" />
                                                 <div className="font-gilroyBold text-textBlack">
-                                                    Class {item.trim()}
+                                                    Class {parseInt(item.trim(), 10)}
                                                 </div>
                                             </div>
                                         ))}
