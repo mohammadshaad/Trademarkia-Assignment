@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import search from '@/public/icons/search.svg';
 import { Checkbox } from "@/components/ui/checkbox"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const Index = () => {
   const [selectedOption, setSelectedOption] = useState('Owners');
