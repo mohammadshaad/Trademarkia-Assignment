@@ -1,10 +1,15 @@
-import React from 'react'
-import Image from 'next/image'
-import filter from '@/public/icons/filter.svg'
-import share from '@/public/icons/share.svg'
-import sort from '@/public/icons/sort.svg'
+import React from 'react';
+import Image from 'next/image';
+import filter from '@/public/icons/filter.svg';
+import share from '@/public/icons/share.svg';
+import sort from '@/public/icons/sort.svg';
 
-const index = () => {
+interface TopFilterProps {
+  onFilterClick: () => void;
+  isSideFilterVisible: boolean; // Add this prop
+}
+
+const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible }) => {
   return (
     <div className='px-10 py-8 w-full flex items-start justify-center flex-col'>
       <div className='flex items-center justify-start font-gilroyBold text-grayText'>
@@ -19,7 +24,12 @@ const index = () => {
           </div>
         </div>
         <div className='flex items-center justify-center gap-4'>
-          <div className='flex gap-1 items-center justify-center text-xs font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer'>
+          <div
+            onClick={onFilterClick}
+            className={`${
+              isSideFilterVisible ? 'bg-[#EEF4FF] !border !border-[#4380EC]  !font-gilroyBold' : ''
+            } flex gap-1 items-center justify-center text-sm font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer`}
+          >
             <Image src={filter} className='w-[18px]' alt='' />
             Filter
           </div>
@@ -32,7 +42,7 @@ const index = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default TopFilter;

@@ -5,9 +5,13 @@ import TopFilter from "@/components/TopFilter";
 import SideFilter from "@/components/SideFilter";
 import { SearchResult } from '@/types/types'; 
 
-
 export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+  const [isSideFilterVisible, setSideFilterVisible] = useState(true);
+
+  const handleToggleSideFilter = () => {
+    setSideFilterVisible(prev => !prev);
+  };
 
   const handleSearchResults = (data: SearchResult[]) => {
     setSearchResults(data);
@@ -16,10 +20,10 @@ export default function Home() {
   return (
     <div className="w-full">
       <Navbar onSearch={handleSearchResults} />
-      <TopFilter />
+      <TopFilter onFilterClick={handleToggleSideFilter} isSideFilterVisible={isSideFilterVisible} />
       <div className="flex items-start justify-between w-full px-10 pb-20">
         <Table searchResults={searchResults} />
-        <SideFilter />
+        {isSideFilterVisible && <SideFilter />}
       </div>
     </div>
   );
