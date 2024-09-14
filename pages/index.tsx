@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Table from "@/components/Table";
 import TopFilter from "@/components/TopFilter";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="w-full">
       <Navbar />
       <TopFilter />
+      <Table />
     </div>
   );
 }

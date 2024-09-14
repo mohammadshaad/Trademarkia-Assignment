@@ -7,7 +7,9 @@
   --primary: #4380EC;
   --secondary: #E7760E;
   --tertiary: #FEF7F0;
+  --quaternary: #41B65C;
   --text: #4B5563;
+  --text-black: #1A1A1A;
   --gilroy-regular: "GilroyRegular", sans-serif;
   --gilroy-bold: "GilroyBold", sans-serif;
   --gilroy-medium: "GilroyMedium", sans-serif;
@@ -149,4 +151,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.mark-shadow {
+  border-radius: 10px;
+  box-shadow: 0px 4px 2px 0px rgba(233, 233, 233, 0.25), 0px 3.935px 10px 0px rgba(232, 232, 232, 0.25), 0px 4.343px 108.574px 0px rgba(152, 152, 152, 0.25);
 }

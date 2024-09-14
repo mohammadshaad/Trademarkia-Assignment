@@ -29,7 +29,9 @@ const config: Config = {
   				foreground: 'hsl(var(--secondary-foreground))'
   			},
   			tertiary: 'var(--tertiary)',
+			  quaternary: 'var(--quaternary)',
   			grayText: 'var(--text)',
+			textBlack: 'var(--text-black)',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
