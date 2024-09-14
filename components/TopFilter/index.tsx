@@ -7,8 +7,8 @@ import sort from '@/public/icons/sort.svg';
 interface TopFilterProps {
   onFilterClick: () => void;
   isSideFilterVisible: boolean;
-  searchQuery: string; // New prop for search query
-  resultsCount: number; // New prop for the number of results
+  searchQuery: string; 
+  resultsCount: number; 
 }
 
 const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible, searchQuery, resultsCount }) => {
