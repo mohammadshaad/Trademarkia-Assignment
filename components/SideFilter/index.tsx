@@ -1,8 +1,13 @@
-import React from 'react'
+import Image from 'next/image';
+import React, { useState } from 'react';
+import search from '@/public/icons/search.svg';
 
-const index = () => {
+const Index = () => {
+  const [selectedOption, setSelectedOption] = useState(''); // Track the selected option
+
   return (
-    <div className='flex items-center justify-start  w-1/4'>
+    <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
+      {/* Status section */}
       <div className='flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-start justify-center flex-col gap-2 w-full'>
           <div className='text-base font-gilroyBold text-textBlack'>Status</div>
@@ -29,8 +34,46 @@ const index = () => {
           </div>
         </div>
       </div>
+
+      {/* Search Section */}
+      <div className='flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
+        <div className='flex items-start justify-center flex-col gap-4 w-full'>
+          <div className='flex items-center justify-start w-full gap-4'>
+            {/* Owners */}
+            <div
+              onClick={() => setSelectedOption('Owners')}
+              className={`${selectedOption === 'Owners' ? 'font-gilroyBold underline underline-offset-8' : 'font-gilroyMedium'} cursor-pointer text-base`}
+            >
+              Owners
+            </div>
+            {/* Law Firms */}
+            <div
+              onClick={() => setSelectedOption('Law Firms')}
+              className={`${selectedOption === 'Law Firms' ? 'font-gilroyBold underline underline-offset-8' : 'font-gilroyMedium'} cursor-pointer text-base`}
+            >
+              Law Firms
+            </div>
+            {/* Attorneys */}
+            <div
+              onClick={() => setSelectedOption('Attorneys')}
+              className={`${selectedOption === 'Attorneys' ? 'font-gilroyBold underline underline-offset-8' : 'font-gilroyMedium'} cursor-pointer text-base`}
+            >
+              Attorneys
+            </div>
+          </div>
+
+          <div className='bg-[#FCFCFE] border border-[#000000]/10 px-4 py-3 rounded-2xl w-full flex items-center gap-2'>
+            <Image src={search} alt='' className='w-8' />
+            <input
+              type='text'
+              className='w-full focus:outline-none placeholder:text-[#313131] placeholder:text-sm placeholder:font-gilroyMedium font-gilroyMedium'
+              placeholder={`Search ${selectedOption || '...'}`}
+            />
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default index
+export default Index;
