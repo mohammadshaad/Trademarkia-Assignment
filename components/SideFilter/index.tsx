@@ -23,37 +23,9 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
     Status: []
   });
 
-  // Trigger API call whenever filters are updated
+  // Send POST request whenever the filters are updated
   useEffect(() => {
     onFilterChange(selectedFilters);
-
-    // Example API call with updated filters
-    const fetchFilteredData = async () => {
-      const data = {
-        owners: selectedFilters.Owners,
-        lawFirms: selectedFilters.LawFirms,
-        attorneys: selectedFilters.Attorneys,
-        status: selectedFilters.Status,
-      };
-
-      try {
-        const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-
-        const result = await response.json();
-        console.log('API result:', result);
-        // Handle the result accordingly (e.g., update state with results)
-      } catch (error) {
-        console.error('API request failed:', error);
-      }
-    };
-
-    fetchFilteredData();
   }, [selectedFilters, onFilterChange]);
 
   const filterOptions = selectedOption === 'Owners'
@@ -62,6 +34,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
       ? lawFirms
       : attorneys;
 
+  // Handle checkbox change for owners, law firms, or attorneys
   const handleCheckboxChange = (name: string) => {
     setSelectedFilters(prevFilters => {
       const updatedFilters = {
@@ -74,6 +47,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
     });
   };
 
+  // Handle status change
   const handleStatusChange = (status: string) => {
     setSelectedFilters(prevFilters => {
       if (status === 'all') {
@@ -102,6 +76,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
 
   return (
     <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
+      {/* Status Filter Section */}
       <div className='flex items-start justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='text-base font-gilroyBold text-textBlack'>Status</div>
         <div className='font-gilroySemibold text-base flex items-center justify-start gap-2 flex-wrap'>
@@ -109,18 +84,20 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
             <div
               key={value}
               onClick={() => handleStatusChange(value)}
-              className={`flex items-center justify-center gap-1 border px-4 py-2 rounded-2xl cursor-pointer ${selectedFilters.Status.includes(value)
-                ? 'bg-[#EEF4FF] border-[#4380EC]'
-                : 'border-[#D1D1D1]'
-                }`}
+              className={`flex items-center justify-center gap-1 border px-4 py-2 rounded-2xl cursor-pointer ${
+                selectedFilters.Status.includes(value)
+                  ? 'bg-[#EEF4FF] border-[#4380EC]'
+                  : 'border-[#D1D1D1]'
+              }`}
             >
               <div
-                className={`rounded-full w-2 h-2 ${value === 'registered' ? 'bg-[#52B649]' :
+                className={`rounded-full w-2 h-2 ${
+                  value === 'registered' ? 'bg-[#52B649]' :
                   value === 'pending' ? 'bg-[#edab2c]' :
-                    value === 'abandoned' ? 'bg-[#EC3C3C]' :
-                      value === 'other' ? 'bg-[#4380EC]' :
-                        'bg-[#D1D1D1]'
-                  }`}
+                  value === 'abandoned' ? 'bg-[#EC3C3C]' :
+                  value === 'other' ? 'bg-[#4380EC]' :
+                  'bg-[#D1D1D1]'
+                }`}
               ></div>
               {label}
             </div>
@@ -128,6 +105,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
         </div>
       </div>
 
+      {/* Filter for Owners, Law Firms, Attorneys */}
       <div className='flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-start justify-center flex-col gap-4 w-full'>
           <div className='flex items-center justify-start w-full gap-4'>
@@ -145,6 +123,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
             </div>
           </div>
 
+          {/* Search Input */}
           <div className='bg-[#FCFCFE] border border-[#000000]/10 px-4 py-3 rounded-2xl w-full flex items-center gap-2'>
             <Image src={searchIcon} alt='Search Icon' className='w-8' />
             <input
@@ -156,6 +135,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
             />
           </div>
 
+          {/* Filter Options */}
           <div className='flex flex-col items-start justify-center gap-2 px-2 py-1'>
             {filteredOptions.map((option) => (
               <div key={option.name_cleaned} className="flex items-center space-x-2">
@@ -173,6 +153,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
         </div>
       </div>
 
+      {/* Display Settings */}
       <div className='mt-4 flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-center justify-start w-full font-gilroyBold'>Display</div>
         <div className='flex items-center justify-center w-full'>

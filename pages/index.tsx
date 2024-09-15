@@ -24,11 +24,66 @@ export default function Home() {
     setSideFilterVisible(prev => !prev);
   };
 
-  const handleFilterChange = useCallback((filters: { [key: string]: string[] }) => {
+  const handleFilterChange = useCallback(async (filters: { [key: string]: string[] }) => {
     console.log('Filters Changed:', filters);
     setSelectedFilters(filters);
-    filterResults(filters);
+
+    const data = {
+      input_query: searchQuery,
+      input_query_type: "",
+      sort_by: "default",
+      status: filters.Status || [],
+      exact_match: false,
+      date_query: false,
+      owners: filters.Owners || [],
+      attorneys: filters.Attorneys || [],
+      law_firms: filters.LawFirms || [],
+      mark_description_description: [],
+      classes: [],
+      page: 1,
+      rows: 10,
+      sort_order: sortOrder,
+      states: [],
+      counties: []
+    };
+
+    try {
+      const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      setSearchResults(result.body.hits.hits.map((item: ApiResponseItem) => ({
+        name: item._source.mark_identification,
+        company: item._source.current_owner,
+        markId: item._source.registration_number,
+        description: item._source.mark_description_description.join(', '),
+        registration_date: item._source.registration_date ? format(fromUnixTime(item._source.registration_date), 'd MMM yyyy') : 'N/A',
+        status_date: item._source.status_date ? format(fromUnixTime(item._source.status_date), 'd MMM yyyy') : 'N/A',
+        status_type: item._source.status_type,
+        renewal_date: item._source.renewal_date ? format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy') : 'N/A',
+        filing_date: item._source.filing_date ? format(fromUnixTime(item._source.filing_date), 'd MMM yyyy') : 'N/A',
+        class: item._source.class_codes.join(', '),
+        law_firm: item._source.law_firm,
+        law_firm_cleaned: item._source.law_firm_cleaned,
+        attorney_name: item._source.attorney_name,
+        attorney_name_cleaned: item._source.attorney_name_cleaned,
+        current_owner: item._source.current_owner,
+        current_owner_cleaned: item._source.current_owner_cleaned,
+      })));
+    } catch (error) {
+      console.error(error);
+    }
   }, [searchQuery, sortOrder]);
+
 
 
   const handleSearchResults = (
@@ -84,7 +139,7 @@ export default function Home() {
       input_query: query,
       input_query_type: "",
       sort_by: "default",
-      status: selectedFilters.Status || [], 
+      status: selectedFilters.Status || [],
       exact_match: false,
       date_query: false,
       owners: selectedFilters.Owners || [],
