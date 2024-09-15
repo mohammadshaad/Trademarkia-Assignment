@@ -64,7 +64,10 @@ export default function Home() {
       });
 
       if (response.status === 404) {
-        setError('No results found for your query.');
+        // Only set error if searchQuery is not empty
+        if (searchQuery) {
+          setError('No results found for your query.');
+        }
         setSearchResults([]);
         setOwners([]);
         setLawFirms([]);
