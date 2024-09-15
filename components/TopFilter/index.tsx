@@ -9,9 +9,31 @@ interface TopFilterProps {
   isSideFilterVisible: boolean;
   searchQuery: string; 
   resultsCount: number; 
+  onSortChange: (order: string) => void; // Add onSortChange prop
 }
 
-const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible, searchQuery, resultsCount }) => {
+const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible, searchQuery, resultsCount, onSortChange }) => {
+  // Function to handle copy to clipboard
+  const handleShareClick = () => {
+    const url = window.location.href;
+    const input = document.createElement('input');
+    input.value = url;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    document.body.removeChild(input);
+    alert('Link copied to clipboard!');
+  };
+
+  // Function to handle sort click
+  const handleSortClick = () => {
+    // Toggle sorting order between 'asc' and 'desc'
+    const currentOrder = window.localStorage.getItem('sortOrder') || 'asc';
+    const newOrder = currentOrder === 'asc' ? 'desc' : 'asc';
+    window.localStorage.setItem('sortOrder', newOrder);
+    onSortChange(newOrder);
+  };
+
   return (
     <div className='px-10 py-8 w-full flex items-start justify-center flex-col'>
       <div className='flex items-center justify-start font-gilroyBold text-grayText'>
@@ -27,18 +49,21 @@ const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisibl
         </div>
         <div className='flex items-center justify-center gap-4'>
           <div
-            onClick={onFilterClick}
             className={`${
               isSideFilterVisible ? 'bg-[#EEF4FF] !border !border-[#4380EC]  !font-gilroyBold' : ''
             } flex gap-1 items-center justify-center text-sm font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer`}
+            onClick={onFilterClick}
           >
             <Image src={filter} className='w-[18px]' alt='' />
             Filter
           </div>
-          <div className='rounded-full border border-[#C8C8C8] p-3 cursor-pointer'>
+          <div 
+            className='rounded-full border border-[#C8C8C8] p-3 cursor-pointer'
+            onClick={handleShareClick} // Attach click handler
+          >
             <Image src={share} className='w-[16px]' alt='' />
           </div>
-          <div className='rounded-full border border-[#C8C8C8] p-3 cursor-pointer'>
+          <div className='rounded-full border border-[#C8C8C8] p-3 cursor-pointer' onClick={handleSortClick}>
             <Image src={sort} className='w-[16px]' alt='' />
           </div>
         </div>

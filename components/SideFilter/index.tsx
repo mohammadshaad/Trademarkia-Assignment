@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Checkbox } from "@/components/ui/checkbox";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { SideFilterProps } from '@/types/SideFilterProps';
 import Image from 'next/image';
 import searchIcon from '@/public/icons/search.svg';
+import { SideFilterProps } from '@/types/SideFilterProps';
 
 const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, onFilterChange }) => {
   const [selectedOption, setSelectedOption] = useState('Owners');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
+  const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({
+    Owners: [],
+    LawFirms: [],
+    Attorneys: []
+  });
+
+  useEffect(() => {
+    onFilterChange(selectedFilters);
+  }, [selectedFilters, onFilterChange]);
 
   const filterOptions = selectedOption === 'Owners'
     ? owners
@@ -17,21 +25,21 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
       : attorneys;
 
   const handleCheckboxChange = (name: string) => {
-    setSelectedFilters((prevFilters) => ({
-      ...prevFilters,
-      [selectedOption]: prevFilters[selectedOption]?.includes(name)
-        ? prevFilters[selectedOption].filter((filter) => filter !== name)
-        : [...(prevFilters[selectedOption] || []), name],
-    }));
+    setSelectedFilters((prevFilters) => {
+      const updatedFilters = {
+        ...prevFilters,
+        [selectedOption]: prevFilters[selectedOption]?.includes(name)
+          ? prevFilters[selectedOption].filter((filter) => filter !== name)
+          : [...(prevFilters[selectedOption] || []), name],
+      };
+      console.log('Updated Filters:', updatedFilters); // Debugging
+      return updatedFilters;
+    });
   };
 
   const filteredOptions = filterOptions.filter((option) =>
     option.name_cleaned.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
-  useEffect(() => {
-    onFilterChange(selectedFilters, searchQuery, selectedOption);
-  }, [selectedFilters, searchQuery, selectedOption]);
 
   return (
     <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
@@ -85,19 +93,21 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
           <div className='flex flex-col items-start justify-center gap-2 px-2 py-1'>
             {filteredOptions.map((option) => (
               <div key={option.name_cleaned} className="flex items-center space-x-2">
-                <Checkbox
-                  id={option.name}
-                  checked={selectedFilters[selectedOption]?.includes(option.name) || false}
-                  onCheckedChange={() => handleCheckboxChange(option.name)}
+                <input
+                  type="checkbox"
+                  id={option.name_cleaned}
+                  checked={selectedFilters[selectedOption]?.includes(option.name_cleaned) || false}
+                  onChange={() => handleCheckboxChange(option.name_cleaned)}
                 />
-                <label htmlFor={option.name} className="text-sm text-[#313131] font-medium leading-none">
-                  {option.name} ({option.count})
+                <label htmlFor={option.name_cleaned} className="text-sm text-[#313131] font-medium leading-none">
+                  {option.name_cleaned} ({option.count})
                 </label>
               </div>
             ))}
           </div>
         </div>
       </div>
+
       <div className='mt-4 flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-center justify-start w-full font-gilroyBold'>Display</div>
         <div className='flex items-center justify-center w-full'>

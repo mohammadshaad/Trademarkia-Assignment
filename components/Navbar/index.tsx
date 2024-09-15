@@ -14,13 +14,7 @@ interface AggregationItem {
 }
 
 interface NavbarProps {
-  onSearch: (
-    result: SearchResult[],
-    query: string,
-    owners?: AggregationItem[],
-    lawFirms?: AggregationItem[],
-    attorneys?: AggregationItem[]
-  ) => void;
+  onSearch: (query: string) => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
@@ -32,77 +26,8 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
     setLoading(true);
     setError(null);
 
-    const data = {
-      input_query: query,
-      input_query_type: "",
-      sort_by: "default",
-      status: [],
-      exact_match: false,
-      date_query: false,
-      owners: [],
-      attorneys: [],
-      law_firms: [],
-      mark_description_description: [],
-      classes: [],
-      page: 1,
-      rows: 10,
-      sort_order: "desc",
-      states: [],
-      counties: []
-    };
-
     try {
-      const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch data: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      const formattedMarkResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
-        name: item._source.mark_identification,
-        company: item._source.current_owner,
-        markId: item._source.registration_number,
-        description: item._source.mark_description_description.join(', '),
-        registration_date: item._source.registration_date ? format(fromUnixTime(item._source.registration_date), 'd MMM yyyy') : 'N/A',
-        status_date: item._source.status_date ? format(fromUnixTime(item._source.status_date), 'd MMM yyyy') : 'N/A',
-        renewal_date: item._source.renewal_date ? format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy') : 'N/A',
-        filing_date: item._source.filing_date ? format(fromUnixTime(item._source.filing_date), 'd MMM yyyy') : 'N/A',
-        class: item._source.class_codes.join(', '),
-        law_firm: item._source.law_firm,
-        law_firm_cleaned: item._source.law_firm_cleaned,
-        attorney_name: item._source.attorney_name,
-        attorney_name_cleaned: item._source.attorney_name_cleaned,
-        current_owner: item._source.current_owner,
-        current_owner_cleaned: item._source.current_owner_cleaned,
-      }));
-
-      const owners = result.body.aggregations.current_owners?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.current_owner_cleaned === bucket.key)?.current_owner,
-        name_cleaned: bucket.key,
-        count: bucket.doc_count,
-      }));
-
-      const lawFirms = result.body.aggregations.law_firms?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.law_firm_cleaned === bucket.key)?.law_firm,
-        name_cleaned: bucket.key,
-        count: bucket.doc_count,
-      }));
-
-      const attorneys = result.body.aggregations.attorneys?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.attorney_name_cleaned === bucket.key)?.attorney_name,
-        name_cleaned: bucket.key,
-        count: bucket.doc_count,
-      }));
-
-      onSearch(formattedMarkResults, query, owners, lawFirms, attorneys);
+      await onSearch(query);
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
