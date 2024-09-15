@@ -53,25 +53,20 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
         const range = [];
         const maxPagesToShow = 4;
 
-        // Show first page
         range.push(1);
 
-        // If current page is greater than maxPagesToShow, show ellipsis
         if (currentPage > maxPagesToShow) {
             range.push('...');
         }
 
-        // Add pages around the current page
         for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
             range.push(i);
         }
 
-        // If current page is less than total pages - maxPagesToShow, show ellipsis
         if (currentPage < totalPages - maxPagesToShow) {
             range.push('...');
         }
 
-        // Show last page
         if (totalPages > 1) {
             range.push(totalPages);
         }
@@ -143,7 +138,7 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
                                             {truncateText(data.description, 50)}
                                         </div>
                                         <div className="flex items-start gap-2 flex-wrap">
-                                            {data.class.split(',').map((item, index) => (
+                                            {data.class.split(',').slice(0, 3).map((item, index) => ( // Show only first 3 classes
                                                 <div key={`${item}-${index}`} className="flex items-center gap-1">
                                                     <Image src={flask} alt="" className="w-5" />
                                                     <div className="font-gilroyBold text-textBlack">
@@ -151,6 +146,11 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
                                                     </div>
                                                 </div>
                                             ))}
+                                            {data.class.split(',').length > 3 && (
+                                                <div className="font-gilroyMedium text-textBlack">
+                                                    + {data.class.split(',').length - 3} more
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 </TableCell>
