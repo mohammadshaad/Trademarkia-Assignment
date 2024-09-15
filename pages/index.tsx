@@ -11,7 +11,7 @@ import { format, fromUnixTime } from 'date-fns';
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>(''); // Default query can be set here
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [isSideFilterVisible, setSideFilterVisible] = useState(true);
   const [owners, setOwners] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [lawFirms, setLawFirms] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
@@ -20,10 +20,9 @@ export default function Home() {
   const [sortOrder, setSortOrder] = useState<string>('desc');
   const [error, setError] = useState<string | null>(null);
   const [viewType, setViewType] = useState<'list' | 'grid'>('list');
-
-  // useEffect(() => {
-  //   handleSearch('trademarkia'); // Replace 'default query' with your initial query if needed
-  // }, []);
+  const [page, setPage] = useState<number>(1);
+  const [rows, setRows] = useState<number>(10);
+  const [totalResults, setTotalResults] = useState<number>(0);
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
@@ -31,18 +30,11 @@ export default function Home() {
 
   const handleFilterChange = useCallback(async (filters: { [key: string]: string[] }) => {
     setSelectedFilters(filters);
-    if (searchQuery) { // Only fetch results if there's a search query
-      await fetchResults(filters);
-    } else {
-      setSearchResults([]);
-      setOwners([]);
-      setLawFirms([]);
-      setAttorneys([]);
-      setError(null);
-    }
-  }, [searchQuery, sortOrder]);
+    setPage(1); // Reset to first page when filters change
+    await fetchResults(filters, 1);
+  }, [searchQuery]);
 
-  const fetchResults = async (filters: { [key: string]: string[] }) => {
+  const fetchResults = async (filters: { [key: string]: string[] }, currentPage: number = page) => {
     const data = {
       input_query: searchQuery,
       input_query_type: "",
@@ -55,8 +47,8 @@ export default function Home() {
       law_firms: filters.LawFirms || [],
       mark_description_description: [],
       classes: [],
-      page: 1,
-      rows: 10,
+      page: currentPage,
+      rows: rows,
       sort_order: sortOrder,
       states: [],
       counties: []
@@ -77,7 +69,8 @@ export default function Home() {
         setOwners([]);
         setLawFirms([]);
         setAttorneys([]);
-        return; // Exit the function early
+        setTotalResults(0);
+        return;
       }
 
       if (!response.ok) {
@@ -85,6 +78,8 @@ export default function Home() {
       }
 
       const result = await response.json();
+      setTotalResults(result.body.hits.total.value);
+
       const formattedMarkResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
         id: Number(item._id),
         name: item._source.mark_identification,
@@ -123,9 +118,11 @@ export default function Home() {
         count: bucket.doc_count,
       })) || [];
 
-      handleSearchResults(formattedMarkResults, searchQuery, owners, lawFirms, attorneys);
-
-      setError(null); // Clear the error if the search is successful
+      setSearchResults(formattedMarkResults);
+      setOwners(owners);
+      setLawFirms(lawFirms);
+      setAttorneys(attorneys);
+      setError(null);
 
     } catch (error) {
       console.error('Error during search:', error);
@@ -133,69 +130,34 @@ export default function Home() {
     }
   };
 
-  const handleSearchResults = (
-    data: SearchResult[],
-    query: string,
-    ownersList?: { name: string; name_cleaned: string; count: number }[],
-    lawFirmsList?: { name: string; name_cleaned: string; count: number }[],
-    attorneysList?: { name: string; name_cleaned: string; count: number }[],
-  ) => {
-    setSearchResults(data);
-    setSearchQuery(query);
-    setOwners(ownersList || []);
-    setLawFirms(lawFirmsList || []);
-    setAttorneys(attorneysList || []);
-  };
-
-  const filterResults = (filters: { [key: string]: string[] }) => {
-    let filteredResults = [...searchResults];
-
-    if (searchQuery) {
-      filteredResults = filteredResults.filter(result =>
-        result.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        result.company.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    for (const [key, values] of Object.entries(filters)) {
-      if (values.length > 0) {
-        filteredResults = filteredResults.filter(result => {
-          const keyTyped = key as keyof SearchResult;
-          return values.includes(result[keyTyped]?.toString().toLowerCase());
-        });
-      }
-    }
-
-    if (sortOrder === 'asc') {
-      filteredResults.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortOrder === 'desc') {
-      filteredResults.sort((a, b) => b.name.localeCompare(a.name));
-    }
-
-    setSearchResults(filteredResults);
-  };
-
   const handleSort = (order: string) => {
     setSortOrder(order);
-    filterResults(selectedFilters);
+    fetchResults(selectedFilters);
   };
 
   const handleSearch = async (query: string) => {
     setSearchQuery(query);
-    if (query) { // Only fetch results if the query is not empty
-      await fetchResults(selectedFilters);
+    setPage(1); // Reset to first page on new search
+    if (query) {
+      await fetchResults(selectedFilters, 1);
     } else {
       setSearchResults([]);
       setOwners([]);
       setLawFirms([]);
       setAttorneys([]);
       setError(null);
+      setTotalResults(0);
     }
   };
 
   const handleViewChange = useCallback((viewType: 'grid' | 'list') => {
     setViewType(viewType);
   }, []);
+
+  const handlePageChange = async (newPage: number) => {
+    setPage(newPage);
+    await fetchResults(selectedFilters, newPage);
+  };
 
   return (
     <div className="w-full">
@@ -207,14 +169,26 @@ export default function Home() {
         onFilterClick={handleToggleSideFilter}
         isSideFilterVisible={isSideFilterVisible}
         searchQuery={searchQuery}
-        resultsCount={searchResults.length}
+        resultsCount={totalResults}
         onSortChange={handleSort}
       />
       <div className="flex flex-col-reverse md:flex-row items-start justify-between w-full px-10 pb-20">
         {viewType === 'grid' ? (
-          <TableGridView searchResults={searchResults} />
+          <TableGridView 
+            searchResults={searchResults} 
+            page={page}
+            rows={rows}
+            totalResults={totalResults}
+            onPageChange={handlePageChange}
+          />
         ) : (
-          <TableListView searchResults={searchResults} />
+          <TableListView 
+            searchResults={searchResults} 
+            page={page}
+            rows={rows}
+            totalResults={totalResults}
+            onPageChange={handlePageChange}
+          />
         )}
         {isSideFilterVisible && (
           <SideFilter

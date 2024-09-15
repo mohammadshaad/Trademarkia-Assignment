@@ -6,14 +6,29 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-
 import Image from "next/image";
 import refresh from '@/public/icons/refresh.svg';
 import flask from '@/public/icons/flask.svg';
-import markImg from '@/public/images/mark-skeleton.svg';
 import { SearchResult } from '@/types/SearchResult';
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination";
 
-export default function Table({ searchResults }: { searchResults: SearchResult[] }) {
+interface ListViewProps {
+    searchResults: SearchResult[];
+    page: number;
+    rows: number;
+    totalResults: number;
+    onPageChange: (page: number) => void;
+}
+
+export default function ListView({ searchResults, page, rows, totalResults, onPageChange }: ListViewProps) {
     const truncateText = (text: string, maxLength: number) => {
         return text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
     };
@@ -33,8 +48,39 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
         }
     };
 
+    const totalPages = Math.ceil(totalResults / rows);
+    const paginationRange = (currentPage: number) => {
+        const range = [];
+        const maxPagesToShow = 4;
+
+        // Show first page
+        range.push(1);
+
+        // If current page is greater than maxPagesToShow, show ellipsis
+        if (currentPage > maxPagesToShow) {
+            range.push('...');
+        }
+
+        // Add pages around the current page
+        for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+            range.push(i);
+        }
+
+        // If current page is less than total pages - maxPagesToShow, show ellipsis
+        if (currentPage < totalPages - maxPagesToShow) {
+            range.push('...');
+        }
+
+        // Show last page
+        if (totalPages > 1) {
+            range.push(totalPages);
+        }
+
+        return range;
+    };
+
     return (
-        <div className="flex items-center justify-start">
+        <div className="flex flex-col gap-6 items-center justify-start">
             <UITable>
                 <TableHeader className="font-gilroyBold">
                     <TableRow>
@@ -45,12 +91,12 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {searchResults?.map((data) => {
+                    {searchResults.map((data) => {
                         const { color, label } = getStatusDetails(data.status_type);
                         return (
-                            <TableRow 
-                                key={data.id} 
-                                className="group !rounded-2xl h-full cursor-pointer" 
+                            <TableRow
+                                key={data.id}
+                                className="group !rounded-2xl h-full cursor-pointer"
                                 onClick={() => window.open(`https://www.trademarkia.com/${data.id}`, '_blank')}
                             >
                                 <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
@@ -113,6 +159,37 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                     })}
                 </TableBody>
             </UITable>
+
+            <Pagination>
+                <PaginationContent>
+                    <PaginationItem>
+                        <PaginationPrevious 
+                          onClick={() => page > 1 && onPageChange(page - 1)}
+                          className={page === 1 ? 'pointer-events-none opacity-50' : ''}
+                        />
+                    </PaginationItem>
+                    {paginationRange(page).map((item, index) => (
+                        <PaginationItem key={index}>
+                            {item === '...' ? (
+                                <PaginationEllipsis />
+                            ) : (
+                                <PaginationLink 
+                                  onClick={() => onPageChange(item as number)}
+                                  isActive={page === item}
+                                >
+                                    {item}
+                                </PaginationLink>
+                            )}
+                        </PaginationItem>
+                    ))}
+                    <PaginationItem>
+                        <PaginationNext 
+                          onClick={() => page < totalPages && onPageChange(page + 1)}
+                          className={page === totalPages ? 'pointer-events-none opacity-50' : ''}
+                        />
+                    </PaginationItem>
+                </PaginationContent>
+            </Pagination>
         </div>
     );
 }
