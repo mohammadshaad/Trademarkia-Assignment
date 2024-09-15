@@ -20,8 +20,6 @@ You can view the live application at [https://shaad-trademarkia-frontend.vercel.
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Folder Structure](#folder-structure)
-5. [Contributing](#contributing)
-6. [License](#license)
 
 ## Technologies Used
 
