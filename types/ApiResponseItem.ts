@@ -1,5 +1,6 @@
 export interface ApiResponseItem {
   _source: {
+    _id: string;
     mark_identification: string;
     current_owner: string;
     current_owner_cleaned: string; // new field

@@ -48,7 +48,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                     {searchResults?.map((data) => {
                         const { color, label } = getStatusDetails(data.status_type);
                         return (
-                            <TableRow key={data.markId} className="group !rounded-2xl h-full">
+                            <TableRow key={data.id} className="group !rounded-2xl h-full">
                                 <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
                                     <Image src={markImg} alt="" className="w-40 my-3 mark-shadow" />
                                 </TableCell>
@@ -94,7 +94,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                         </div>
                                         <div className="flex items-start gap-2 flex-wrap">
                                             {data.class.split(',').map((item, index) => (
-                                                <div key={index} className="flex items-center gap-1">
+                                                <div key={`${item}-${index}`} className="flex items-center gap-1">
                                                     <Image src={flask} alt="" className="w-5" />
                                                     <div className="font-gilroyBold text-textBlack">
                                                         Class {parseInt(item.trim(), 10)}

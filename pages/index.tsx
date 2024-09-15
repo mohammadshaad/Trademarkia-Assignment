@@ -7,6 +7,7 @@ import ErrorPopup from "@/components/ErrorPopup"; // Import the new ErrorPopup c
 import { SearchResult } from '@/types/SearchResult';
 import { ApiResponseItem } from '@/types/ApiResponseItem';
 import { format, fromUnixTime, set } from 'date-fns';
+import { id } from "date-fns/locale";
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -25,7 +26,7 @@ export default function Home() {
   };
 
   const handleFilterChange = useCallback(async (filters: { [key: string]: string[] }) => {
-    console.log('Filters Changed:', filters);
+    // console.log('Filters Changed:', filters);
     setSelectedFilters(filters);
 
     const data = {
@@ -62,6 +63,7 @@ export default function Home() {
 
       const result = await response.json();
       setSearchResults(result.body.hits.hits.map((item: ApiResponseItem) => ({
+        id: item._source._id,
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
@@ -153,6 +155,8 @@ export default function Home() {
       states: [],
       counties: []
     };
+
+    console.log(data);
 
     try {
       const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {

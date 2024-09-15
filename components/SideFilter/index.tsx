@@ -82,22 +82,20 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
         <div className='font-gilroySemibold text-base flex items-center justify-start gap-2 flex-wrap'>
           {statusOptions.map(({ label, value }) => (
             <div
-              key={value}
+              key={`${label}-${value}`}
               onClick={() => handleStatusChange(value)}
-              className={`flex items-center justify-center gap-1 border px-4 py-2 rounded-2xl cursor-pointer ${
-                selectedFilters.Status.includes(value)
+              className={`flex items-center justify-center gap-1 border px-4 py-2 rounded-2xl cursor-pointer ${selectedFilters.Status.includes(value)
                   ? 'bg-[#EEF4FF] border-[#4380EC]'
                   : 'border-[#D1D1D1]'
-              }`}
+                }`}
             >
               <div
-                className={`rounded-full w-2 h-2 ${
-                  value === 'registered' ? 'bg-[#52B649]' :
-                  value === 'pending' ? 'bg-[#edab2c]' :
-                  value === 'abandoned' ? 'bg-[#EC3C3C]' :
-                  value === 'other' ? 'bg-[#4380EC]' :
-                  'bg-[#D1D1D1]'
-                }`}
+                className={`rounded-full w-2 h-2 ${value === 'registered' ? 'bg-[#52B649]' :
+                    value === 'pending' ? 'bg-[#edab2c]' :
+                      value === 'abandoned' ? 'bg-[#EC3C3C]' :
+                        value === 'other' ? 'bg-[#4380EC]' :
+                          'bg-[#D1D1D1]'
+                  }`}
               ></div>
               {label}
             </div>
@@ -135,10 +133,9 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
             />
           </div>
 
-          {/* Filter Options */}
           <div className='flex flex-col items-start justify-center gap-2 px-2 py-1'>
-            {filteredOptions.map((option) => (
-              <div key={option.name_cleaned} className="flex items-center space-x-2">
+            {filteredOptions.map((option, index) => (
+              <div key={`${option}-${index}`} className="flex items-center space-x-2">
                 <Checkbox
                   id={option.name_cleaned}
                   checked={selectedFilters[selectedOption]?.includes(option.name_cleaned) || false}
