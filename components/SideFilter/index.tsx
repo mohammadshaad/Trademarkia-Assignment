@@ -72,7 +72,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
   );
 
   return (
-    <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
+    <div className='flex items-center justify-start w-full md:w-1/4 flex-col gap-2'>
       <div className='flex items-start justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='text-base font-gilroyBold text-textBlack'>Status</div>
         <div className='font-gilroySemibold text-base flex items-center justify-start gap-2 flex-wrap'>

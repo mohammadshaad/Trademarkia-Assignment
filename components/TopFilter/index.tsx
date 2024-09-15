@@ -40,7 +40,7 @@ const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisibl
         About {resultsCount} Trademarks found for &quot;{searchQuery}&quot; {/* Display results count and search query */}
       </div>
       <hr className='w-full border-[1px] my-6' />
-      <div className='flex items-center justify-between w-full'>
+      <div className='flex md:flex-row flex-col items-start justify-center md:items-center md:justify-between w-full'>
         <div className='flex items-center justify-start gap-4 font-gilroyBold text-grayText'>
           Also try searching for
           <div className='bg-tertiary px-6 py-1.5 border border-secondary text-secondary rounded-xl'>
@@ -51,7 +51,7 @@ const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisibl
         <div className='flex items-center justify-center gap-4'>
           <div
             className={`${isSideFilterVisible ? 'bg-[#EEF4FF] !border !border-[#4380EC]  !font-gilroyBold' : ''
-              } flex gap-1 items-center justify-center text-sm font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer`}
+              } flex gap-1 items-center justify-center text-sm font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-2 md:py-3 cursor-pointer`}
             onClick={onFilterClick}
           >
             <Image src={filter} className='w-[18px]' alt='' />
