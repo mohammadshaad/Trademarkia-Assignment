@@ -13,7 +13,7 @@ const statusOptions = [
   { label: 'Others', value: 'other' },
 ];
 
-const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, onFilterChange }) => {
+const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, onFilterChange, onViewChange }) => {
   const [selectedOption, setSelectedOption] = useState('Owners');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({
@@ -23,7 +23,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
     Status: []
   });
 
-  // Send POST request whenever the filters are updated
   useEffect(() => {
     onFilterChange(selectedFilters);
   }, [selectedFilters, onFilterChange]);
@@ -34,7 +33,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
       ? lawFirms
       : attorneys;
 
-  // Handle checkbox change for owners, law firms, or attorneys
   const handleCheckboxChange = (name: string) => {
     setSelectedFilters(prevFilters => {
       const updatedFilters = {
@@ -47,7 +45,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
     });
   };
 
-  // Handle status change
   const handleStatusChange = (status: string) => {
     setSelectedFilters(prevFilters => {
       if (status === 'all') {
@@ -76,7 +73,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
 
   return (
     <div className='flex items-center justify-start w-1/4 flex-col gap-2'>
-      {/* Status Filter Section */}
       <div className='flex items-start justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='text-base font-gilroyBold text-textBlack'>Status</div>
         <div className='font-gilroySemibold text-base flex items-center justify-start gap-2 flex-wrap'>
@@ -85,16 +81,16 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
               key={`${label}-${value}`}
               onClick={() => handleStatusChange(value)}
               className={`flex items-center justify-center gap-1 border px-4 py-2 rounded-2xl cursor-pointer ${selectedFilters.Status.includes(value)
-                  ? 'bg-[#EEF4FF] border-[#4380EC]'
-                  : 'border-[#D1D1D1]'
+                ? 'bg-[#EEF4FF] border-[#4380EC]'
+                : 'border-[#D1D1D1]'
                 }`}
             >
               <div
                 className={`rounded-full w-2 h-2 ${value === 'registered' ? 'bg-[#52B649]' :
-                    value === 'pending' ? 'bg-[#edab2c]' :
-                      value === 'abandoned' ? 'bg-[#EC3C3C]' :
-                        value === 'other' ? 'bg-[#4380EC]' :
-                          'bg-[#D1D1D1]'
+                  value === 'pending' ? 'bg-[#edab2c]' :
+                    value === 'abandoned' ? 'bg-[#EC3C3C]' :
+                      value === 'other' ? 'bg-[#4380EC]' :
+                        'bg-[#D1D1D1]'
                   }`}
               ></div>
               {label}
@@ -103,7 +99,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
         </div>
       </div>
 
-      {/* Filter for Owners, Law Firms, Attorneys */}
       <div className='flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-start justify-center flex-col gap-4 w-full'>
           <div className='flex items-center justify-start w-full gap-4'>
@@ -121,7 +116,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
             </div>
           </div>
 
-          {/* Search Input */}
           <div className='bg-[#FCFCFE] border border-[#000000]/10 px-4 py-3 rounded-2xl w-full flex items-center gap-2'>
             <Image src={searchIcon} alt='Search Icon' className='w-8' />
             <input
@@ -150,14 +144,24 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
         </div>
       </div>
 
-      {/* Display Settings */}
       <div className='mt-4 flex items-center justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='flex items-center justify-start w-full font-gilroyBold'>Display</div>
         <div className='flex items-center justify-center w-full'>
-          <Tabs defaultValue="grid" className="w-full font-gilroyBold">
+          <Tabs defaultValue="list" className="w-full font-gilroyBold">
             <TabsList>
-              <TabsTrigger value="grid">Grid View</TabsTrigger>
-              <TabsTrigger value="list">List View</TabsTrigger>
+              <TabsTrigger
+                value="list"
+                onClick={() => onViewChange('list')}
+              >
+                List View
+              </TabsTrigger>
+              <TabsTrigger
+                value="grid"
+                onClick={() => onViewChange('grid')}
+              >
+                Grid View
+              </TabsTrigger>
+
             </TabsList>
           </Tabs>
         </div>

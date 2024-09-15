@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import Table from "@/components/Table";
+import TableListView from "@/components/Table/ListView";
+import TableGridView from "@/components/Table/GridView";
 import TopFilter from "@/components/TopFilter";
 import SideFilter from "@/components/SideFilter";
 import ErrorPopup from "@/components/ErrorPopup";
@@ -18,12 +19,11 @@ export default function Home() {
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
   const [sortOrder, setSortOrder] = useState<string>('desc');
   const [error, setError] = useState<string | null>(null);
+  const [viewType, setViewType] = useState<'list' | 'grid'>('list');
 
-  useEffect(() => {
-    
-
-    handleSearch('trademarkia'); // Replace 'default query' with your initial query if needed
-  }, []);
+  // useEffect(() => {
+  //   handleSearch('trademarkia'); // Replace 'default query' with your initial query if needed
+  // }, []);
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
@@ -31,7 +31,15 @@ export default function Home() {
 
   const handleFilterChange = useCallback(async (filters: { [key: string]: string[] }) => {
     setSelectedFilters(filters);
-    await fetchResults(filters);
+    if (searchQuery) { // Only fetch results if there's a search query
+      await fetchResults(filters);
+    } else {
+      setSearchResults([]);
+      setOwners([]);
+      setLawFirms([]);
+      setAttorneys([]);
+      setError(null);
+    }
   }, [searchQuery, sortOrder]);
 
   const fetchResults = async (filters: { [key: string]: string[] }) => {
@@ -65,6 +73,10 @@ export default function Home() {
 
       if (response.status === 404) {
         setError('No results found for your query.');
+        setSearchResults([]);
+        setOwners([]);
+        setLawFirms([]);
+        setAttorneys([]);
         return; // Exit the function early
       }
 
@@ -169,8 +181,20 @@ export default function Home() {
 
   const handleSearch = async (query: string) => {
     setSearchQuery(query);
-    await fetchResults(selectedFilters);
+    if (query) { // Only fetch results if the query is not empty
+      await fetchResults(selectedFilters);
+    } else {
+      setSearchResults([]);
+      setOwners([]);
+      setLawFirms([]);
+      setAttorneys([]);
+      setError(null);
+    }
   };
+
+  const handleViewChange = useCallback((viewType: 'grid' | 'list') => {
+    setViewType(viewType);
+  }, []);
 
   return (
     <div className="w-full">
@@ -186,13 +210,18 @@ export default function Home() {
         onSortChange={handleSort}
       />
       <div className="flex items-start justify-between w-full px-10 pb-20">
-        <Table searchResults={searchResults} />
+        {viewType === 'grid' ? (
+          <TableGridView searchResults={searchResults} />
+        ) : (
+          <TableListView searchResults={searchResults} />
+        )}
         {isSideFilterVisible && (
           <SideFilter
             owners={owners}
             lawFirms={lawFirms}
             attorneys={attorneys}
             onFilterChange={handleFilterChange}
+            onViewChange={handleViewChange}
           />
         )}
       </div>
