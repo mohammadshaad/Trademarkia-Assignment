@@ -148,7 +148,7 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
                                             ))}
                                             {data.class.split(',').length > 2 && (
                                                 <div className="font-gilroyMedium text-textBlack">
-                                                    + {data.class.split(',').length - 3} more
+                                                    + {data.class.split(',').length - 2} more
                                                 </div>
                                             )}
                                         </div>

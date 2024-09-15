@@ -118,7 +118,7 @@ export default function GridView({ searchResults, page, rows, totalResults, onPa
                                     ))}
                                     {data.class.split(',').length > 2 && (
                                         <div className="font-bold text-textBlack">
-                                            + {data.class.split(',').length - 3} more
+                                            + {data.class.split(',').length - 2} more
                                         </div>
                                     )}
                                 </div>

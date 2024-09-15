@@ -136,7 +136,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
                   onCheckedChange={() => handleCheckboxChange(option.name_cleaned)}
                 />
                 <label htmlFor={option.name_cleaned} className="text-sm text-[#313131] font-medium leading-none">
-                  {option.name_cleaned} ({option.count})
+                  {option.name_cleaned.toUpperCase()} ({option.count})
                 </label>
               </div>
             ))}
