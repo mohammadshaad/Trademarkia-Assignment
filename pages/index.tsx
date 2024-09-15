@@ -23,7 +23,7 @@ export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [rows, setRows] = useState<number>(10);
   const [totalResults, setTotalResults] = useState<number>(0);
-  const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
@@ -31,7 +31,7 @@ export default function Home() {
 
   const handleFilterChange = useCallback(async (filters: { [key: string]: string[] }) => {
     setSelectedFilters(filters);
-    setPage(1); // Reset to first page when filters change
+    setPage(1);
     await fetchResults(filters, 1);
   }, [searchQuery]);
 
@@ -55,7 +55,7 @@ export default function Home() {
       counties: []
     };
 
-    setIsLoading(true); // Set loading state to true
+    setIsLoading(true);
 
     try {
       const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
@@ -133,7 +133,7 @@ export default function Home() {
       console.error('Error during search:', error);
       setError(error instanceof Error ? error.message : 'An unknown error occurred');
     } finally {
-      setIsLoading(false); // Set loading state to false
+      setIsLoading(false);
     }
   };
 
@@ -144,7 +144,7 @@ export default function Home() {
 
   const handleSearch = async (query: string) => {
     setSearchQuery(query);
-    setPage(1); // Reset to first page on new search
+    setPage(1);
     if (query) {
       await fetchResults(selectedFilters, 1);
     } else {
@@ -182,7 +182,7 @@ export default function Home() {
       <div className="flex flex-col-reverse md:flex-row items-start justify-between w-full px-10 pb-20">
         {isLoading ? (
           <div className="flex items-center justify-center w-full h-full">
-            <p>Loading...</p> {/* You can replace this with a spinner component */}
+            <p>Loading...</p>
           </div>
         ) : searchResults.length === 0 ? (
           <div className="flex items-center justify-center w-full h-full">

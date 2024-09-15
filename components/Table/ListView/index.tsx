@@ -44,7 +44,7 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
             case 'other':
                 return { color: '#4380EC', label: 'Indifferent' };
             default:
-                return { color: '#4380EC', label: 'Indifferent' }; // Default case
+                return { color: '#4380EC', label: 'Indifferent' };
         }
     };
 
@@ -138,7 +138,7 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
                                             {truncateText(data.description, 50)}
                                         </div>
                                         <div className="flex items-start gap-2 flex-wrap">
-                                            {data.class.split(',').slice(0, 3).map((item, index) => ( // Show only first 3 classes
+                                            {data.class.split(',').slice(0, 3).map((item, index) => (
                                                 <div key={`${item}-${index}`} className="flex items-center gap-1">
                                                     <Image src={flask} alt="" className="w-5" />
                                                     <div className="font-gilroyBold text-textBlack">

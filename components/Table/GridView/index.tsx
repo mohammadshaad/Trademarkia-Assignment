@@ -36,7 +36,7 @@ export default function GridView({ searchResults, page, rows, totalResults, onPa
             case 'other':
                 return { color: '#4380EC', label: 'Indifferent' };
             default:
-                return { color: '#4380EC', label: 'Indifferent' }; // Default case
+                return { color: '#4380EC', label: 'Indifferent' }; 
         }
     };
 
