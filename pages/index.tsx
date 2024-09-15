@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Table from "@/components/Table";
 import TopFilter from "@/components/TopFilter";
 import SideFilter from "@/components/SideFilter";
+import ErrorPopup from "@/components/ErrorPopup"; // Import the new ErrorPopup component
 import { SearchResult } from '@/types/SearchResult';
 import { ApiResponseItem } from '@/types/ApiResponseItem';
 import { format, fromUnixTime } from 'date-fns';
@@ -15,7 +16,8 @@ export default function Home() {
   const [lawFirms, setLawFirms] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [attorneys, setAttorneys] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
-  const [sortOrder, setSortOrder] = useState<string>('default'); // Add sortOrder state
+  const [sortOrder, setSortOrder] = useState<string>('default');
+  const [error, setError] = useState<string | null>(null); // State for handling errors
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
@@ -60,7 +62,6 @@ export default function Home() {
       }
     }
 
-    // Apply sorting based on sortOrder
     if (sortOrder === 'asc') {
       filteredResults.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOrder === 'desc') {
@@ -90,7 +91,7 @@ export default function Home() {
       classes: [],
       page: 1,
       rows: 10,
-      sort_order: "desc",
+      sort_order: sortOrder,
       states: [],
       counties: []
     };
@@ -103,6 +104,10 @@ export default function Home() {
         },
         body: JSON.stringify(data),
       });
+
+      if (response.status === 404) {
+        throw new Error('No results found for your query.');
+      }
 
       if (!response.ok) {
         throw new Error(`Failed to fetch data: ${response.statusText}`);
@@ -149,14 +154,18 @@ export default function Home() {
       handleSearchResults(formattedMarkResults, query, owners, lawFirms, attorneys);
     } catch (error) {
       console.error('Error fetching search results:', error);
+      setError(error instanceof Error ? error.message : 'An unknown error occurred');
     }
+  };
+
+  const handleCloseErrorPopup = () => {
+    setError(null);
   };
 
   return (
     <div className="w-full">
-      <Navbar
-        onSearch={handleSearch}
-      />
+      {error && <ErrorPopup message={error} onClose={handleCloseErrorPopup} />}
+      <Navbar onSearch={handleSearch} />
       <TopFilter
         onFilterClick={handleToggleSideFilter}
         isSideFilterVisible={isSideFilterVisible}

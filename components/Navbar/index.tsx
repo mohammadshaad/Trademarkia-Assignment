@@ -25,7 +25,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
   const handleSearch = async () => {
     setLoading(true);
     setError(null);
-
+  
     try {
       await onSearch(query);
     } catch (error) {
@@ -38,6 +38,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className='bg-[#F8FAFE] border-b-4 border-[#EAF1FF] w-full flex items-center justify-start gap-6'>

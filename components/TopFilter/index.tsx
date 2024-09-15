@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import filter from '@/public/icons/filter.svg';
 import share from '@/public/icons/share.svg';
@@ -7,13 +7,15 @@ import sort from '@/public/icons/sort.svg';
 interface TopFilterProps {
   onFilterClick: () => void;
   isSideFilterVisible: boolean;
-  searchQuery: string; 
-  resultsCount: number; 
+  searchQuery: string;
+  resultsCount: number;
   onSortChange: (order: string) => void; // Add onSortChange prop
 }
 
 const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisible, searchQuery, resultsCount, onSortChange }) => {
-  // Function to handle copy to clipboard
+
+  const [order, setOrder] = useState<string>('default');
+
   const handleShareClick = () => {
     const url = window.location.href;
     const input = document.createElement('input');
@@ -27,11 +29,9 @@ const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisibl
 
   // Function to handle sort click
   const handleSortClick = () => {
-    // Toggle sorting order between 'asc' and 'desc'
-    const currentOrder = window.localStorage.getItem('sortOrder') || 'asc';
-    const newOrder = currentOrder === 'asc' ? 'desc' : 'asc';
-    window.localStorage.setItem('sortOrder', newOrder);
-    onSortChange(newOrder);
+    const newOrder = order === 'asc' ? 'desc' : 'asc';
+    setOrder(newOrder); // Update local state
+    onSortChange(newOrder); // Notify parent component
   };
 
   return (
@@ -49,15 +49,14 @@ const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisibl
         </div>
         <div className='flex items-center justify-center gap-4'>
           <div
-            className={`${
-              isSideFilterVisible ? 'bg-[#EEF4FF] !border !border-[#4380EC]  !font-gilroyBold' : ''
-            } flex gap-1 items-center justify-center text-sm font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer`}
+            className={`${isSideFilterVisible ? 'bg-[#EEF4FF] !border !border-[#4380EC]  !font-gilroyBold' : ''
+              } flex gap-1 items-center justify-center text-sm font-gilroyMedium text-[#575757] border border-[#C8C8C8] rounded-xl px-5 py-3 cursor-pointer`}
             onClick={onFilterClick}
           >
             <Image src={filter} className='w-[18px]' alt='' />
             Filter
           </div>
-          <div 
+          <div
             className='rounded-full border border-[#C8C8C8] p-3 cursor-pointer'
             onClick={handleShareClick} // Attach click handler
           >
