@@ -4,75 +4,392 @@
             "attorneys": {
                 "buckets": [
                     {
-                        "doc_count": 4,
+                        "doc_count": 576,
                         "key": "raj abhyanker"
+                    },
+                    {
+                        "doc_count": 316,
+                        "key": "christopher j day"
+                    },
+                    {
+                        "doc_count": 219,
+                        "key": "matthew h swyers"
+                    },
+                    {
+                        "doc_count": 169,
+                        "key": "lawrence e abelman"
+                    },
+                    {
+                        "doc_count": 138,
+                        "key": "joshua m gerben esq"
+                    },
+                    {
+                        "doc_count": 133,
+                        "key": "xavier morales"
+                    },
+                    {
+                        "doc_count": 113,
+                        "key": "molly buck richard"
+                    },
+                    {
+                        "doc_count": 106,
+                        "key": "monica b richman"
+                    },
+                    {
+                        "doc_count": 106,
+                        "key": "william h brewster"
+                    },
+                    {
+                        "doc_count": 102,
+                        "key": "michael markos"
                     }
                 ],
-                "doc_count_error_upper_bound": 0,
-                "sum_other_doc_count": 0
+                "doc_count_error_upper_bound": 90,
+                "sum_other_doc_count": 114318
             },
             "class_codes": {
                 "buckets": [
                     {
-                        "doc_count": 3,
-                        "key": "045"
+                        "doc_count": 23422,
+                        "key": "035"
                     },
                     {
-                        "doc_count": 2,
+                        "doc_count": 21870,
+                        "key": "041"
+                    },
+                    {
+                        "doc_count": 18127,
+                        "key": "025"
+                    },
+                    {
+                        "doc_count": 15071,
                         "key": "042"
                     },
                     {
-                        "doc_count": 1,
-                        "key": "035"
+                        "doc_count": 14312,
+                        "key": "009"
+                    },
+                    {
+                        "doc_count": 13001,
+                        "key": "016"
+                    },
+                    {
+                        "doc_count": 11609,
+                        "key": "036"
+                    },
+                    {
+                        "doc_count": 6719,
+                        "key": "030"
+                    },
+                    {
+                        "doc_count": 6718,
+                        "key": "028"
+                    },
+                    {
+                        "doc_count": 5707,
+                        "key": "044"
+                    },
+                    {
+                        "doc_count": 5561,
+                        "key": "003"
+                    },
+                    {
+                        "doc_count": 5439,
+                        "key": "037"
+                    },
+                    {
+                        "doc_count": 4769,
+                        "key": "043"
+                    },
+                    {
+                        "doc_count": 4631,
+                        "key": "005"
+                    },
+                    {
+                        "doc_count": 4377,
+                        "key": "045"
+                    },
+                    {
+                        "doc_count": 4155,
+                        "key": "021"
+                    },
+                    {
+                        "doc_count": 4009,
+                        "key": "039"
+                    },
+                    {
+                        "doc_count": 3570,
+                        "key": "020"
+                    },
+                    {
+                        "doc_count": 3325,
+                        "key": "029"
+                    },
+                    {
+                        "doc_count": 2926,
+                        "key": "032"
+                    },
+                    {
+                        "doc_count": 2890,
+                        "key": "014"
+                    },
+                    {
+                        "doc_count": 2691,
+                        "key": "038"
+                    },
+                    {
+                        "doc_count": 2680,
+                        "key": "018"
+                    },
+                    {
+                        "doc_count": 2545,
+                        "key": "033"
+                    },
+                    {
+                        "doc_count": 2359,
+                        "key": "040"
+                    },
+                    {
+                        "doc_count": 2240,
+                        "key": "011"
+                    },
+                    {
+                        "doc_count": 2122,
+                        "key": "010"
+                    },
+                    {
+                        "doc_count": 2031,
+                        "key": "007"
+                    },
+                    {
+                        "doc_count": 1921,
+                        "key": "012"
+                    },
+                    {
+                        "doc_count": 1867,
+                        "key": "006"
+                    },
+                    {
+                        "doc_count": 1713,
+                        "key": "031"
+                    },
+                    {
+                        "doc_count": 1605,
+                        "key": "024"
+                    },
+                    {
+                        "doc_count": 1552,
+                        "key": "001"
+                    },
+                    {
+                        "doc_count": 1287,
+                        "key": "019"
+                    },
+                    {
+                        "doc_count": 997,
+                        "key": "008"
+                    },
+                    {
+                        "doc_count": 910,
+                        "key": "034"
+                    },
+                    {
+                        "doc_count": 904,
+                        "key": "026"
+                    },
+                    {
+                        "doc_count": 894,
+                        "key": "004"
+                    },
+                    {
+                        "doc_count": 663,
+                        "key": "017"
+                    },
+                    {
+                        "doc_count": 600,
+                        "key": "022"
+                    },
+                    {
+                        "doc_count": 578,
+                        "key": "002"
+                    },
+                    {
+                        "doc_count": 419,
+                        "key": "013"
+                    },
+                    {
+                        "doc_count": 412,
+                        "key": "027"
+                    },
+                    {
+                        "doc_count": 390,
+                        "key": "023"
+                    },
+                    {
+                        "doc_count": 305,
+                        "key": "046"
+                    },
+                    {
+                        "doc_count": 249,
+                        "key": "015"
                     }
                 ],
                 "doc_count_error_upper_bound": 0,
-                "sum_other_doc_count": 0
+                "sum_other_doc_count": 1268
             },
             "country": {
                 "buckets": [
                     {
-                        "doc_count": 3,
+                        "doc_count": 89138,
                         "key": ""
                     },
                     {
-                        "doc_count": 1,
+                        "doc_count": 59287,
                         "key": "US"
+                    },
+                    {
+                        "doc_count": 6191,
+                        "key": "United States"
+                    },
+                    {
+                        "doc_count": 2721,
+                        "key": "CA"
+                    },
+                    {
+                        "doc_count": 1349,
+                        "key": "CN"
+                    },
+                    {
+                        "doc_count": 1203,
+                        "key": "GB"
+                    },
+                    {
+                        "doc_count": 886,
+                        "key": "FR"
+                    },
+                    {
+                        "doc_count": 789,
+                        "key": "JP"
+                    },
+                    {
+                        "doc_count": 744,
+                        "key": "AU"
+                    },
+                    {
+                        "doc_count": 722,
+                        "key": "DE"
                     }
                 ],
-                "doc_count_error_upper_bound": 0,
-                "sum_other_doc_count": 0
+                "doc_count_error_upper_bound": 162,
+                "sum_other_doc_count": 7398
             },
             "current_owners": {
                 "buckets": [
                     {
-                        "doc_count": 2,
-                        "key": "legalforce rapc worldwide professionalcorporation"
+                        "doc_count": 199,
+                        "key": "mattel inc"
                     },
                     {
-                        "doc_count": 1,
-                        "key": "abhyanker raj"
+                        "doc_count": 129,
+                        "key": "anheuserbusch incorporated"
                     },
                     {
-                        "doc_count": 1,
-                        "key": "legalforce rapc worldwide professional"
+                        "doc_count": 123,
+                        "key": "buildabear retail management inc"
+                    },
+                    {
+                        "doc_count": 118,
+                        "key": "abercrombie & fitch trading co"
+                    },
+                    {
+                        "doc_count": 109,
+                        "key": "mars incorporated"
+                    },
+                    {
+                        "doc_count": 99,
+                        "key": "disney enterprises inc"
+                    },
+                    {
+                        "doc_count": 91,
+                        "key": "western publishing company inc"
+                    },
+                    {
+                        "doc_count": 90,
+                        "key": "pepsico inc"
+                    },
+                    {
+                        "doc_count": 89,
+                        "key": "twentieth century fox film corporation"
+                    },
+                    {
+                        "doc_count": 88,
+                        "key": "johnson & johnson"
                     }
                 ],
-                "doc_count_error_upper_bound": 0,
-                "sum_other_doc_count": 0
+                "doc_count_error_upper_bound": 54,
+                "sum_other_doc_count": 168899
             },
             "law_firms": {
                 "buckets": [
                     {
-                        "doc_count": 4,
+                        "doc_count": 4666,
+                        "key": ""
+                    },
+                    {
+                        "doc_count": 867,
                         "key": "legalforce rapc worldwide pc"
+                    },
+                    {
+                        "doc_count": 522,
+                        "key": "lz legal services llc"
+                    },
+                    {
+                        "doc_count": 271,
+                        "key": "christopher j day"
+                    },
+                    {
+                        "doc_count": 261,
+                        "key": "greenberg traurig llp"
+                    },
+                    {
+                        "doc_count": 196,
+                        "key": "matthew h swyers"
+                    },
+                    {
+                        "doc_count": 171,
+                        "key": "kilpatrick townsend  stockton llp"
+                    },
+                    {
+                        "doc_count": 170,
+                        "key": "holland  hart llp"
+                    },
+                    {
+                        "doc_count": 154,
+                        "key": "wood herron  evans llp"
+                    },
+                    {
+                        "doc_count": 144,
+                        "key": "dorsey  whitney llp"
                     }
                 ],
-                "doc_count_error_upper_bound": 0,
-                "sum_other_doc_count": 0
+                "doc_count_error_upper_bound": 101,
+                "sum_other_doc_count": 162827
             },
             "office_actions": {
-                "buckets": [],
+                "buckets": [
+                    {
+                        "doc_count": 1484,
+                        "key": "RSOU"
+                    },
+                    {
+                        "doc_count": 1077,
+                        "key": "OA"
+                    },
+                    {
+                        "doc_count": 291,
+                        "key": "ROA"
+                    }
+                ],
                 "doc_count_error_upper_bound": 0,
                 "sum_other_doc_count": 0
             }
@@ -80,254 +397,646 @@
         "hits": {
             "hits": [
                 {
-                    "_id": "85126556",
+                    "_id": "87935101",
                     "_index": "us_search_v3",
-                    "_score": 6.9960556,
+                    "_score": 6.643729,
                     "sort": [
                         "registered",
-                        6.9960556,
-                        1632873600000
+                        6.643729,
+                        1726099200000
                     ],
                     "_source": {
-                        "registration_number": "3965290",
-                        "registration_date": 1306195200,
-                        "filing_date": 1284076800,
-                        "status_date": 1632873600,
-                        "renewal_date": 1621814400,
+                        "registration_number": "5665827",
+                        "registration_date": 1548720000,
+                        "filing_date": 1527120000,
+                        "status_date": 1726099200,
+                        "renewal_date": 1864339200,
+                        "date_type": "renewal_10y_period",
+                        "status_code": 702,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Andrew J. Ferren",
+                            "law_firm": "Goulston & Storrs PC",
+                            "mark_identification": "A",
+                            "owner": "Advarra, Inc."
+                        },
+                        "starting_letter": {
+                            "attorney": "A",
+                            "law_firm": "G",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "Goulston & Storrs PC",
+                        "law_firm_cleaned": "goulston  storrs pc",
+                        "attorney_name": "Andrew J. Ferren",
+                        "attorney_name_cleaned": "andrew j ferren",
+                        "current_owner": "Advarra, Inc.",
+                        "current_owner_cleaned": "advarra inc",
+                        "mark_description_code": [
+                            "DM0000",
+                            "PM0001",
+                            "CC0000",
+                            "GS0451"
+                        ],
+                        "mark_description_description": [
+                            "The mark consists of the letter \"A\" in stylized, uppercase font, wherein the letter is formed by an incomplete triangle at the top and a curved concave line that forms the horizontal line in the letter. The curved concave line intersects the left vertical line of the triangle but does not intersect with the right vertical line of the triangle and therefore forms a space between the curved concave line and the right vertical line of the triangle.",
+                            "ADVARRA",
+                            "Color is not claimed as a feature of the mark.",
+                            "Providing independent review of clinical trials involving human subjects, namely, reviewing research protocols and related information to ensure protection of the rights and welfare of human subjects of research; providing information relating to regulatory compliance for independent review of clinical trials involving human subjects"
+                        ],
+                        "first_use_anywhere_date": 20171107,
+                        "class_codes": [
+                            "045"
+                        ],
+                        "country": "",
+                        "owner_location": {
+                            "lat": 41.702043,
+                            "lon": -72.301192
+                        },
+                        "mark_status_key": 40
+                    }
+                },
+                {
+                    "_id": "86394084",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1724889600000
+                    ],
+                    "_source": {
+                        "registration_number": "4738408",
+                        "registration_date": 1431993600,
+                        "filing_date": 1410566400,
+                        "status_date": 1724889600,
+                        "renewal_date": 1747612800,
                         "date_type": "renewal_10y_period",
                         "status_code": 800,
                         "status_type": "registered",
                         "search_bar": {
-                            "attorneys": "Raj Abhyanker",
-                            "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                            "mark_identification": "TRADEMARKIA",
-                            "owner": "LEGALFORCE RAPC WORLDWIDE, PROFESSIONAL"
+                            "attorneys": "Scott A. Lund",
+                            "law_firm": "DICKE, BILLIG & CZAJA, PLLC",
+                            "mark_identification": "A",
+                            "owner": "Airlift Doors, Inc."
+                        },
+                        "starting_letter": {
+                            "attorney": "S",
+                            "law_firm": "D",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "DICKE, BILLIG & CZAJA, PLLC",
+                        "law_firm_cleaned": "dicke billig  czaja pllc",
+                        "attorney_name": "Scott A. Lund",
+                        "attorney_name_cleaned": "scott a lund",
+                        "current_owner": "Airlift Doors, Inc.",
+                        "current_owner_cleaned": "airlift doors inc",
+                        "mark_description_code": [
+                            "DM0000",
+                            "GS0191",
+                            "GS0071",
+                            "PM0001",
+                            "GS0371",
+                            "CC0000"
+                        ],
+                        "mark_description_description": [
+                            "The mark consists of a capital letter \"A\" with an upward arrow extended from the right leg of the \"A\".",
+                            "Non-metal doors and non-metal door systems, comprised of non-metal door panels, structural components, and non-metal door structural parts, namely, hinges and tracks",
+                            "Pneumatic, magnetic and motorized door operators in the nature of door openers and closers, and door opening and closing systems, comprised of structural parts, structural components, and electronic controls therefor",
+                            "AIRLIFT",
+                            "Installation, maintenance, and repair of doors, door panels, door operators and door systems, including parts, accessories, components, controls, and control accessories therefor",
+                            "Color is not claimed as a feature of the mark."
+                        ],
+                        "first_use_anywhere_date": 19910600,
+                        "class_codes": [
+                            "007",
+                            "019",
+                            "037"
+                        ],
+                        "country": "",
+                        "owner_location": {
+                            "lat": 41.47544,
+                            "lon": -81.615315
+                        },
+                        "mark_status_key": 40
+                    }
+                },
+                {
+                    "_id": "98149505",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1724112000000
+                    ],
+                    "_source": {
+                        "registration_number": "7479877",
+                        "registration_date": 1724112000,
+                        "filing_date": 1692835200,
+                        "status_date": 1724112000,
+                        "renewal_date": 1913414400,
+                        "date_type": "renewal_6y_period",
+                        "status_code": 700,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Warren L. Dranit",
+                            "law_firm": "SPAULDING MCCULLOUGH & TANSIL LLP",
+                            "mark_identification": "A",
+                            "owner": "Avance Biosciences Inc."
+                        },
+                        "starting_letter": {
+                            "attorney": "W",
+                            "law_firm": "S",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "SPAULDING MCCULLOUGH & TANSIL LLP",
+                        "law_firm_cleaned": "spaulding mccullough  tansil llp",
+                        "attorney_name": "Warren L. Dranit",
+                        "attorney_name_cleaned": "warren l dranit",
+                        "current_owner": "Avance Biosciences Inc.",
+                        "current_owner_cleaned": "avance biosciences inc",
+                        "mark_description_code": [
+                            "GS0421",
+                            "CC0000",
+                            "PM0001",
+                            "DM0000"
+                        ],
+                        "mark_description_description": [
+                            "Providing research and testing services to others to support drug development, drug manufacturing and biologic research; providing pharmaceutical and biologic research and testing services to others featuring assay development, assay validation, sample testing, molecular biology, protein biology, cell biology, microbiology and analytical chemistry",
+                            "The color(s) dark blue is/are claimed as a feature of the mark.",
+                            "AVANCE",
+                            "The mark consists of two dark blue concentric lines in the shape of a triangle and creating a stylized letter \"A\"."
+                        ],
+                        "first_use_anywhere_date": 20180301,
+                        "class_codes": [
+                            "042"
+                        ],
+                        "country": "",
+                        "owner_location": {
+                            "lat": 40.246459,
+                            "lon": -80.211447
+                        },
+                        "mark_status_key": 40,
+                        "is_lrapc": false
+                    }
+                },
+                {
+                    "_id": "76530123",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1723766400000
+                    ],
+                    "_source": {
+                        "registration_number": "2857644",
+                        "registration_date": 1088467200,
+                        "filing_date": 1058227200,
+                        "status_date": 1723766400,
+                        "renewal_date": 1404172800,
+                        "date_type": "renewal_10y_period",
+                        "status_code": 800,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Marie Anne Mastrovito",
+                            "law_firm": "Womble Bond Dickinson (US) LLP",
+                            "mark_identification": "A",
+                            "owner": "Taiko Pharmaceutical Co., Ltd."
+                        },
+                        "starting_letter": {
+                            "attorney": "M",
+                            "law_firm": "W",
+                            "mark_name": "A",
+                            "owner": "T"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "Womble Bond Dickinson (US) LLP",
+                        "law_firm_cleaned": "womble bond dickinson us llp",
+                        "attorney_name": "Marie Anne Mastrovito",
+                        "attorney_name_cleaned": "marie anne mastrovito",
+                        "current_owner": "Taiko Pharmaceutical Co., Ltd.",
+                        "current_owner_cleaned": "taiko pharmaceutical co ltd",
+                        "mark_description_code": [
+                            "DM0000",
+                            "TL0000",
+                            "GS0051",
+                            "CC0000",
+                            "TR0010",
+                            "DS0000"
+                        ],
+                        "mark_description_description": [
+                            "The mark is comprised of Japanese characters and a stylized version of the letter \"A\".",
+                            "The first three Japanese characters transliterate to \"SEIROGAN\". The two smaller Japanese characters transliterate to \"TOI\".",
+                            "Herbal dietary supplements",
+                            "Color is not claimed as a feature of the mark.",
+                            "The English translation of SEIROGAN from the Japanese language is \"correct dew pills\". The English translation of TOI from the Japanese language is \"sugar coated\".",
+                            "THE JAPANESE CHARACTER REPRESENTING THE TERMS \"PILLS\" OR \"SUGAR COATED\""
+                        ],
+                        "first_use_anywhere_date": 19820928,
+                        "class_codes": [
+                            "005"
+                        ],
+                        "country": "JP",
+                        "owner_location": {
+                            "lat": 30.206879,
+                            "lon": -81.600984
+                        },
+                        "mark_status_key": 40
+                    }
+                },
+                {
+                    "_id": "97629032",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1723507200000
+                    ],
+                    "_source": {
+                        "registration_number": "7476091",
+                        "registration_date": 1723507200,
+                        "filing_date": 1665532800,
+                        "status_date": 1723507200,
+                        "renewal_date": 1912809600,
+                        "date_type": "renewal_6y_period",
+                        "status_code": 700,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Shannon Marie McKeon",
+                            "law_firm": "DYKEMA GOSSETT PLLC",
+                            "mark_identification": "A",
+                            "owner": "ALGOLIA"
+                        },
+                        "starting_letter": {
+                            "attorney": "S",
+                            "law_firm": "D",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "DYKEMA GOSSETT PLLC",
+                        "law_firm_cleaned": "dykema gossett pllc",
+                        "attorney_name": "Shannon Marie McKeon",
+                        "attorney_name_cleaned": "shannon marie mckeon",
+                        "current_owner": "ALGOLIA",
+                        "current_owner_cleaned": "algolia",
+                        "mark_description_code": [
+                            "GS0421",
+                            "GS0451",
+                            "CC0000",
+                            "DM0000",
+                            "GS0411"
+                        ],
+                        "mark_description_description": [
+                            "Design and development of software; technical project studies in the nature of technical research in the field of computer programming; development, design, installation, maintenance and updating of computer software; computer programming; computer programming consultancy; conversion of computer programs and data, other than physical conversion; provision of internet site-specific search engine services for others; consulting services in the field of software as a service (SAAS); software as a service (SAAS) services featuring software for perfecting search and discovery of site-specific and term-specific internet search engine queries and results",
+                            "Licensing of computer and mobile software",
+                            "Color is not claimed as a feature of the mark.",
+                            "The mark consists of the letter \"a\" in a stylized font.",
+                            "Providing an Internet website portal featuring instruction relating to the use of application programming interface software for performing internet searches"
+                        ],
+                        "first_use_anywhere_date": 20221000,
+                        "class_codes": [
+                            "045",
+                            "042",
+                            "041"
+                        ],
+                        "country": "FR",
+                        "owner_location": {
+                            "lat": 47.023906,
+                            "lon": 4.838043
+                        },
+                        "mark_status_key": 40,
+                        "is_lrapc": false
+                    }
+                },
+                {
+                    "_id": "97680228",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1723507200000
+                    ],
+                    "_source": {
+                        "registration_number": "7470919",
+                        "registration_date": 1723507200,
+                        "filing_date": 1668556800,
+                        "status_date": 1723507200,
+                        "renewal_date": 1912809600,
+                        "date_type": "renewal_6y_period",
+                        "status_code": 700,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Arturo Perez-Guerrero",
+                            "law_firm": "PEREZ GUERRERO LLC",
+                            "mark_identification": "A",
+                            "owner": "Avelina Cosmetics, S.A. de C.V."
+                        },
+                        "starting_letter": {
+                            "attorney": "A",
+                            "law_firm": "P",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "PEREZ GUERRERO LLC",
+                        "law_firm_cleaned": "perez guerrero llc",
+                        "attorney_name": "Arturo Perez-Guerrero",
+                        "attorney_name_cleaned": "arturo perezguerrero",
+                        "current_owner": "Avelina Cosmetics, S.A. de C.V.",
+                        "current_owner_cleaned": "avelina cosmetics sa de cv",
+                        "mark_description_code": [
+                            "GS0351",
+                            "CC0000",
+                            "GS0031",
+                            "DM0000"
+                        ],
+                        "mark_description_description": [
+                            "The bringing together, for the benefit of others, of Facial creams, Facial lotion, Make-up, Shampoo bars, Shampoos, Cosmetic creams, Cosmetic masks, Cosmetic oils, Cosmetic preparations for eyelashes, Long lash mascaras, Non-medicated balms for use on skin, Non-medicated soaps, Nonmedicated hair serums, Non-medicated skin serums, Non-medicated skin care preparations, excluding the transport thereof, enabling customers to conveniently view and purchase those goods by means of on-line retail stores; The bringing together, for the benefit of others, of Facial creams, Facial lotion, Make-up, Shampoo bars, Shampoos, Cosmetic creams, Cosmetic masks, Cosmetic oils, Cosmetic preparations for eyelashes, Long lash mascaras, Non-medicated balms for use on skin, Non-medicated soaps, Non-medicated hair serums, Non-medicated skin serums, Non-medicated skin care preparations, excluding the transport thereof, enabling customers to conveniently view and purchase those goods by means of on-line wholesale stores; The bringing together, for the benefit of others, of Facial creams, Facial lotion, Make-up, Shampoo bars, Shampoos, Cosmetic creams, Cosmetic masks, Cosmetic oils, Cosmetic preparations for eyelashes, Long lash mascaras, Non-medicated balms for use on skin, Nonmedicated soaps, Non-medicated hair serums, Non-medicated skin serums, Non-medicated skin care preparations, excluding the transport thereof, enabling customers to conveniently view and purchase those goods by means of retail stores; The bringing together, for the benefit of others, of Facial creams, Facial lotion, Make-up, Shampoo bars, Shampoos, Cosmetic creams, Cosmetic masks, Cosmetic oils, Cosmetic preparations for eyelashes, Long lash mascaras, Non-medicated balms for use on skin, Nonmedicated soaps, Non-medicated hair serums, Non-medicated skin serums, Non-medicated skin care preparations, excluding the transport thereof, enabling customers to conveniently view and purchase those goods by means of wholesale stores",
+                            "Color is not claimed as a feature of the mark.",
+                            "Facial creams; Make-up; Shampoo bars; Shampoos; Cosmetic creams; Cosmetic masks; Cosmetic oils; Cosmetic preparations for eyelashes; Long lash mascaras; Non-medicated balms for use on skin; Non-medicated soaps; Non-medicated hair serums; Non-medicated skin serums; Non-medicated skin care preparations",
+                            "The mark consists of the letter A in stylized letter with two leaves like design."
+                        ],
+                        "first_use_anywhere_date": -1,
+                        "class_codes": [
+                            "035",
+                            "003"
+                        ],
+                        "country": "MX",
+                        "owner_location": {
+                            "lat": 19.43,
+                            "lon": -99.17
+                        },
+                        "mark_status_key": 40,
+                        "is_lrapc": false
+                    }
+                },
+                {
+                    "_id": "90576035",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1722902400000
+                    ],
+                    "_source": {
+                        "registration_number": "7469201",
+                        "registration_date": 1722902400,
+                        "filing_date": 1615507200,
+                        "status_date": 1722902400,
+                        "renewal_date": 1912204800,
+                        "date_type": "renewal_6y_period",
+                        "status_code": 700,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "David A.W. Wong",
+                            "law_firm": "BARNES & THORNBURG LLP",
+                            "mark_identification": "A",
+                            "owner": "Angie's List, Inc."
+                        },
+                        "starting_letter": {
+                            "attorney": "D",
+                            "law_firm": "B",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "BARNES & THORNBURG LLP",
+                        "law_firm_cleaned": "barnes  thornburg llp",
+                        "attorney_name": "David A.W. Wong",
+                        "attorney_name_cleaned": "david aw wong",
+                        "current_owner": "Angie's List, Inc.",
+                        "current_owner_cleaned": "angies list inc",
+                        "mark_description_code": [
+                            "GS0421",
+                            "GS0351",
+                            "GS0371",
+                            "GS0091",
+                            "DM0000",
+                            "GS0411"
+                        ],
+                        "mark_description_description": [
+                            "Providing a website featuring technology that enables users to seek bids from a network of contractors in fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services and access an online lead management service; software as a service (SAAS) services featuring software for general business networking referral services for use in making and providing referrals; software as a service (SAAS) services featuring software for referral services for use in making and providing referrals in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; software as a service (SAAS) services featuring software for the bringing together of consumers and providers of a variety of goods and services in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; software as a service (SAAS) services featuring software that enables users to seek bids from a network of contractors in fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services and access an online lead management service; providing a website featuring on-line non-downloadable software that enables users to locate, and book service appointments with home and office cleaners, handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; providing temporary use of on-line non-downloadable software for processing electronic invoicing and payments; software as a service (SAAS) services, namely, hosting software for use by others for use in requesting, making, and accepting payments, customer invoicing, and the collection, reporting, management, and analysis of financial data for business purposes; computer services, namely, providing temporary use of non-downloadable software for the collecting, storing, analyzing, and providing data and information regarding electronic payment transactions; providing a website featuring technology that enables users to connect with other people in their geographic vicinity and connect with people providing services, sharing news and information, and organizing events; computer services, namely, creating an online community for registered users to participate in discussions; providing a website featuring technology that enables users to upload, post, show, display, tag, blog, share and provide electronic media and information over the Internet and other communications network; providing temporary use of non-downloadable software for enabling users to locate and book service appointments for handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; software as a services (SAAS) featuring software for the bringing together of consumers and providers of handyman services, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; providing a website which allows the user to submit service requests for professional contractors in the field of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services and allows consumers to request to be matched with contractors; providing a website allowing users to browse a library of photos that are organized by types of design styles, and types of home building and improvement; providing a web site featuring technology that enables users to access images and text in the fields of home decoration, home reorganization, handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; providing online resources, namely, providing a website being an online design board featuring technology that enables users to organize their ideas in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; providing a website featuring technology that allows users to search, view, collect and share images relating to home improvement",
+                            "General business networking referral services, namely, promoting the goods and services of others; providing referrals in the fields of home improvement, maintenance, renovations, and repair, and general building contractor services; providing an online searchable database featuring referrals in the fields home improvement, maintenance, renovations, and repair, and general building contractor services; the bringing together, for the benefit of others, of consumers and providers of a variety of goods and services in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services for commercial purposes via the internet, excluding the transport thereof, enabling customers to conveniently view and purchase those goods and services by means of retail stores provided through a website and online platform particularly specializing in the marketing of the goods and services of others; advertising and directory services, namely, promoting the services of others by providing a web page featuring links to the websites of others available via the internet and mobile phone networks in the nature of providing demand generation and sales lead generating activities and services; promoting the services of others by providing commercial information of local and national service providers by means of providing a web page featuring links to the websites of others, matching consumers and commercial entities with local and national service providers for commercial purposes, and providing an online marketplace featuring the services of others; providing online resources in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services, and other local services, namely, providing business advice and information in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services and business management to homeowners and commercial entities; providing an online commercial information directory on the internet; providing an online searchable database in the field of business information and business contacts; providing a website featuring an online marketplace for sellers for exchanging goods and services with other users; providing an on-line commercial information directory on the internet; providing an online searchable database in the field of business information and business contacts; the bringing together of consumers and providers, for the benefit of others, of a variety of goods in the nature of a wide variety of consumer goods of others in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services for commercial purposes, excluding the transport thereof, enabling customers to conveniently view and purchase those goods by means of on-line retail stores; providing business information in the nature of pricing, ratings, reviews, and recommendations about the goods and services of others from searchable indexes and databases of information; providing consumer information in the field of home contractor products and services featuring consumer rating information, consumer referral information, consumer recommendations, and price discount information via a website; business marketing consulting services; promoting the goods and service of others by means of providing a web site at which users can link to websites in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; promoting the goods and services of others by means of providing hypertext links to the web sites of others in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; business information services provided in the fields of contact information in the nature of business information services, service specialties in the nature of business information services, company overviews and pertinent licensing in the nature of business information services, insurance and consumer rating in the nature of business information services; providing on-line business directories featuring handyman services, building services, construction services, home improvement services, maintenance services, services for renovations and repair, and general building contractor services; operating on-line marketplaces for buyers and sellers of goods and services in the nature of handyman services, building services, construction services, home improvement services, maintenance services, services for renovations and repair, and general building contractor services, as well as providing commercial informational content related to such goods and services; advertising and directory services available via the internet and mobile phone networks, namely, providing sales lead generating activities and services in the nature of sales leads for others in the field of handyman, building, construction, home improvement, maintenance, renovations, repair, and general building contractor services; promoting the services of others by providing commercial information of local and national service providers, matching consumers and commercial entities with local and national service providers for commercial purposes; providing a website featuring an on-line marketplace for exchanging services with other users; providing online resources, namely, providing business advice and information in the fields of building being business information services, construction being business information services, home improvement being business information services, maintenance being business information services, renovations being business information services, and repair being business information services, general building contractor services being business information services, and other local services concerning topics of general interest to homeowners and commercial entities being business information services, handyman being business information services, building being business information services, construction being business information services, home improvement being business information services, maintenance being business information services, renovations being business information services, and repair being business information services, and general building contractor services industry survey and statistical information and analysis being business information services; business management; providing an online directory information service featuring information regarding handyman services, building services, construction services, home improvement services, maintenance services, services for renovations and repair, and general building contractor services",
+                            "Providing information services relating to construction in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; providing an on-line computer database that features images and text in the field of building construction services in the nature of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services",
+                            "Downloadable mobile application software in the nature of a mobile application for locating and booking service appointments for handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; downloadable mobile application software for the bringing together of consumers and providers of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; downloadable mobile computer software for transmitting and sharing advertising materials for others; downloadable computer software for sharing information about consumer and business products and services and promotional deals of others; downloadable computer software for creating searchable databases of information and data relating to the ratings, reviews and recommendations on products and services for commercial purposes posted by users; downloadable computer software for the collection, editing, organizing, modifying, book marking, transmission, storage and sharing of data and information; downloadable computer software for enabling consumers to schedule appointments with consumer and business service providers; downloadable computer e-commerce software to allow users to perform electronic business transactions via a global computer network; downloadable computer software for enabling customers to conveniently view and purchase a variety of consumer and business products and services of others from an internet website; downloadable mobile application software for utilizing and providing access to information concerning general business networking referral services; downloadable mobile application software for utilizing and providing access to information concerning referral services in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services; downloadable mobile application software for the bringing together of consumers and providers of a variety of goods and services in the fields of home improvement, maintenance, renovations, and repair, and general building contractor services; downloadable mobile application software that enables users to seek bids from a network of contractors in fields of building, construction, home improvement, maintenance, renovations, and repair, and general building contractors and access an online lead management service",
+                            "The mark consists of a stylized letter \"A\". The colors black, grey, and white represent background, outlining, shading, and transparent areas and are not claimed as features of the mark.",
+                            "Educational services, namely, providing online instruction in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services offered through an online non-downloadable series of videos; education services, namely, providing online educational instruction in the fields of handyman, building, construction, home improvement, maintenance, renovations, and repair, and general building contractor services offered through an online non-downloadable series of videos and printable materials distributed therewith"
+                        ],
+                        "first_use_anywhere_date": 20210317,
+                        "class_codes": [
+                            "042",
+                            "041",
+                            "037",
+                            "035",
+                            "009"
+                        ],
+                        "country": "",
+                        "owner_location": {
+                            "lat": 32.529166,
+                            "lon": -116.91147
+                        },
+                        "mark_status_key": 40,
+                        "is_lrapc": false
+                    }
+                },
+                {
+                    "_id": "98113990",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1722902400000
+                    ],
+                    "_source": {
+                        "registration_number": "7466501",
+                        "registration_date": 1722902400,
+                        "filing_date": 1690934400,
+                        "status_date": 1722902400,
+                        "renewal_date": 1912204800,
+                        "date_type": "renewal_6y_period",
+                        "status_code": 700,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "",
+                            "law_firm": "Mucha Holdings Corp.",
+                            "mark_identification": "A",
+                            "owner": "Mucha Holdings Corp."
+                        },
+                        "starting_letter": {
+                            "mark_name": "A",
+                            "owner": "M",
+                            "law_firm": "M"
+                        },
+                        "mark_identification": "A",
+                        "law_firm_cleaned": "mucha holdings corp",
+                        "current_owner": "Mucha Holdings Corp.",
+                        "current_owner_cleaned": "mucha holdings corp",
+                        "mark_description_code": [
+                            "CC0000",
+                            "GS0251",
+                            "DM0000"
+                        ],
+                        "mark_description_description": [
+                            "The color(s) pink, aqua and white is/are claimed as a feature of the mark.",
+                            "Swim wear for gentlemen and ladies",
+                            "The mark consists of a stylized letter pink letter A with the top of the letter containing an aqua square with a smaller square inside with two short lines extending from each side of the square. The mark is set against a white background."
+                        ],
+                        "first_use_anywhere_date": 20180301,
+                        "class_codes": [
+                            "025"
+                        ],
+                        "country": "",
+                        "owner_location": {
+                            "lat": 32.96179,
+                            "lon": -96.829169
+                        },
+                        "mark_status_key": 40,
+                        "is_lrapc": false,
+                        "law_firm": "Mucha Holdings Corp."
+                    }
+                },
+                {
+                    "_id": "87923663",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1722556800000
+                    ],
+                    "_source": {
+                        "registration_number": "5642886",
+                        "registration_date": 1546300800,
+                        "filing_date": 1526428800,
+                        "status_date": 1722556800,
+                        "renewal_date": 1861920000,
+                        "date_type": "renewal_10y_period",
+                        "status_code": 702,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Jennifer McGovern",
+                            "law_firm": "PARRISH SNEAD FRANKLIN SIMPSON, PLC",
+                            "mark_identification": "A",
+                            "owner": "ACCESS EYE CENTERS, INC."
+                        },
+                        "starting_letter": {
+                            "attorney": "J",
+                            "law_firm": "P",
+                            "mark_name": "A",
+                            "owner": "A"
+                        },
+                        "mark_identification": "A",
+                        "law_firm": "PARRISH SNEAD FRANKLIN SIMPSON, PLC",
+                        "law_firm_cleaned": "parrish snead franklin simpson plc",
+                        "attorney_name": "Jennifer McGovern",
+                        "attorney_name_cleaned": "jennifer mcgovern",
+                        "current_owner": "ACCESS EYE CENTERS, INC.",
+                        "current_owner_cleaned": "access eye centers inc",
+                        "mark_description_code": [
+                            "GS0441",
+                            "GS0351",
+                            "CC0000",
+                            "DM0000"
+                        ],
+                        "mark_description_description": [
+                            "Fitting of contact lenses; Fitting of eyeglasses; [ Hearing aid fitting services; ] Laser vision correction services; Laser vision surgery services; Medical services in the field of optometry; Medical services in the field of opthalmology; [ Medical testing for diagnostic or treatment purposes in the field of audiology; ] Treatment of eye diseases and conditions",
+                            "On-line retail store services featuring contact lenses; Retail optical store services [ ; Retail store services featuring hearing aids ]",
+                            "Color is not claimed as a feature of the mark.",
+                            "The mark consists of a stylized letter \"A\" with a depiction of an eye contained in the center of the letter."
+                        ],
+                        "first_use_anywhere_date": 20150825,
+                        "class_codes": [
+                            "044",
+                            "035"
+                        ],
+                        "country": "US",
+                        "owner_location": {
+                            "lat": -34.87041,
+                            "lon": -56.019685
+                        },
+                        "mark_status_key": 40,
+                        "is_lrapc": false
+                    }
+                },
+                {
+                    "_id": "86087999",
+                    "_index": "us_search_v3",
+                    "_score": 6.643729,
+                    "sort": [
+                        "registered",
+                        6.643729,
+                        1722556800000
+                    ],
+                    "_source": {
+                        "registration_number": "4736067",
+                        "registration_date": 1431388800,
+                        "filing_date": 1381363200,
+                        "status_date": 1722556800,
+                        "renewal_date": 1747008000,
+                        "date_type": "renewal_10y_period",
+                        "status_code": 800,
+                        "status_type": "registered",
+                        "search_bar": {
+                            "attorneys": "Randy Troxel",
+                            "law_firm": "Trademark-Associates",
+                            "mark_identification": "A",
+                            "owner": "AGVERDICT INC."
                         },
                         "starting_letter": {
                             "attorney": "R",
-                            "law_firm": "L",
-                            "mark_name": "T",
-                            "owner": "L"
+                            "law_firm": "T",
+                            "mark_name": "A",
+                            "owner": "A"
                         },
-                        "mark_identification": "TRADEMARKIA",
-                        "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                        "law_firm_cleaned": "legalforce rapc worldwide pc",
-                        "attorney_name": "Raj Abhyanker",
-                        "attorney_name_cleaned": "raj abhyanker",
-                        "current_owner": "LEGALFORCE RAPC WORLDWIDE, PROFESSIONAL",
-                        "current_owner_cleaned": "legalforce rapc worldwide professional",
+                        "mark_identification": "A",
+                        "law_firm": "Trademark-Associates",
+                        "law_firm_cleaned": "trademarkassociates",
+                        "attorney_name": "Randy Troxel",
+                        "attorney_name_cleaned": "randy troxel",
+                        "current_owner": "AGVERDICT INC.",
+                        "current_owner_cleaned": "agverdict inc",
                         "mark_description_code": [
-                            "PM0001",
-                            "GS0351",
-                            "GS0421",
-                            "PM0001",
-                            "GS0351",
+                            "DM0000",
+                            "CC0000",
+                            "GS0441",
                             "GS0421"
                         ],
                         "mark_description_description": [
-                            "TRADE MARKIA; TRADEMARK IA",
-                            "Advertising, marketing and promotion services",
-                            "Computer services, namely, providing search engines for obtaining trademark data from publicly available sources; providing temporary use of on-line non-downloadable software for trademark searching and managing trademark matters",
-                            "TRADE MARKIA; TRADEMARK IA",
-                            "Advertising, marketing and promotion services",
-                            "Computer services, namely, providing search engines for obtaining trademark data from publicly available sources; providing temporary use of on-line non-downloadable software for trademark searching and managing trademark matters"
+                            "The mark consists of a representation of a globe; within the circular portion of the globe is a stylized \"A\".",
+                            "Color is not claimed as a feature of the mark.",
+                            "Agricultural advisory and consultation services; Providing an on-line computer database for managing information in the field of agronomic services",
+                            "Providing a website featuring technology that allows users to access, plan, and manage information in the fields of agriculture, horticulture, and agronomy"
                         ],
-                        "first_use_anywhere_date": 20090615,
+                        "first_use_anywhere_date": 20140131,
                         "class_codes": [
-                            "035",
                             "042",
-                            "035",
-                            "042"
+                            "044"
                         ],
                         "country": "",
-                        "is_lrapc": true,
                         "owner_location": {
                             "lat": -2.22134,
                             "lon": -79.894335
                         },
                         "mark_status_key": 40
-                    }
-                },
-                {
-                    "_id": "97845096",
-                    "_index": "us_search_v3",
-                    "_score": 6.9944854,
-                    "sort": [
-                        "registered",
-                        6.9944854,
-                        1705968000000
-                    ],
-                    "_source": {
-                        "registration_number": "7287247",
-                        "registration_date": 1705968000,
-                        "filing_date": 1679011200,
-                        "status_date": 1705968000,
-                        "renewal_date": 1895356800,
-                        "date_type": "renewal_6y_period",
-                        "status_code": 700,
-                        "status_type": "registered",
-                        "search_bar": {
-                            "attorneys": "Raj Abhyanker",
-                            "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                            "mark_identification": "TRADEMARKIA",
-                            "owner": "LEGALFORCE RAPC WORLDWIDE, PROFESSIONALCORPORATION"
-                        },
-                        "starting_letter": {
-                            "attorney": "R",
-                            "law_firm": "L",
-                            "mark_name": "T",
-                            "owner": "L"
-                        },
-                        "mark_identification": "TRADEMARKIA",
-                        "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                        "law_firm_cleaned": "legalforce rapc worldwide pc",
-                        "attorney_name": "Raj Abhyanker",
-                        "attorney_name_cleaned": "raj abhyanker",
-                        "current_owner": "LEGALFORCE RAPC WORLDWIDE, PROFESSIONALCORPORATION",
-                        "current_owner_cleaned": "legalforce rapc worldwide professionalcorporation",
-                        "mark_description_code": [
-                            "GS0451"
-                        ],
-                        "mark_description_description": [
-                            "Legal services; legal document preparation services and providing general legal information via a website on global computer networks; providing general legal information via a website on global computer networks and via attorney consultation"
-                        ],
-                        "first_use_anywhere_date": 20200101,
-                        "class_codes": [
-                            "045"
-                        ],
-                        "country": "",
-                        "is_lrapc": true,
-                        "owner_location": {
-                            "lat": -2.22134,
-                            "lon": -79.894335
-                        },
-                        "mark_status_key": 40
-                    }
-                },
-                {
-                    "_id": "87924397",
-                    "_index": "us_search_v3",
-                    "_score": 6.7204943,
-                    "sort": [
-                        "registered",
-                        6.7204943,
-                        1546300800000
-                    ],
-                    "_source": {
-                        "registration_number": "5642937",
-                        "registration_date": 1546300800,
-                        "filing_date": 1526428800,
-                        "status_date": 1546300800,
-                        "renewal_date": 1735689600,
-                        "date_type": "renewal_6y_period",
-                        "status_code": 700,
-                        "status_type": "registered",
-                        "search_bar": {
-                            "attorneys": "Raj Abhyanker",
-                            "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                            "mark_identification": "LEGALFORCE TRADEMARKIA",
-                            "owner": "LEGALFORCE RAPC WORLDWIDE, PROFESSIONALCORPORATION"
-                        },
-                        "starting_letter": {
-                            "attorney": "R",
-                            "law_firm": "L",
-                            "mark_name": "L",
-                            "owner": "L"
-                        },
-                        "mark_identification": "LEGALFORCE TRADEMARKIA",
-                        "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                        "law_firm_cleaned": "legalforce rapc worldwide pc",
-                        "attorney_name": "Raj Abhyanker",
-                        "attorney_name_cleaned": "raj abhyanker",
-                        "current_owner": "LEGALFORCE RAPC WORLDWIDE, PROFESSIONALCORPORATION",
-                        "current_owner_cleaned": "legalforce rapc worldwide professionalcorporation",
-                        "mark_description_code": [
-                            "GS0421",
-                            "GS0451",
-                            "PM0001"
-                        ],
-                        "mark_description_description": [
-                            "Providing temporary use of on-line non-downloadable software for trademark searching and managing trademark matters; Computer services, namely, providing search engines for obtaining trademark data from publicly available sources",
-                            "Legal advice; Legal advisory services; Legal consultation services; Legal document preparation and research services for attorneys; Legal document preparation services; Legal information services; Legal services; Legal research; Providing information about legal services via a website; Intellectual property consultation; Advisory services relating to intellectual property rights; Providing information in the field of intellectual property",
-                            "LEGAL FORCE TRADEMARK IA"
-                        ],
-                        "first_use_anywhere_date": 20120413,
-                        "class_codes": [
-                            "045",
-                            "042"
-                        ],
-                        "country": "",
-                        "is_lrapc": true,
-                        "owner_location": {
-                            "lat": -2.22134,
-                            "lon": -79.894335
-                        },
-                        "mark_status_key": 40
-                    }
-                },
-                {
-                    "_id": "77771925",
-                    "_index": "us_search_v3",
-                    "_score": 4.9944854,
-                    "sort": [
-                        "abandoned",
-                        4.9944854,
-                        1293408000000
-                    ],
-                    "_source": {
-                        "registration_number": "0",
-                        "registration_date": -1,
-                        "filing_date": 1246406400,
-                        "status_date": 1293408000,
-                        "date_type": "abandoned",
-                        "status_code": 601,
-                        "status_type": "abandoned",
-                        "search_bar": {
-                            "attorneys": "Raj Abhyanker",
-                            "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                            "mark_identification": "TRADEMARKIA",
-                            "owner": "Abhyanker, Raj"
-                        },
-                        "starting_letter": {
-                            "attorney": "R",
-                            "law_firm": "L",
-                            "mark_name": "T",
-                            "owner": "A"
-                        },
-                        "mark_identification": "TRADEMARKIA",
-                        "law_firm": "LEGALFORCE RAPC WORLDWIDE, P.C.",
-                        "law_firm_cleaned": "legalforce rapc worldwide pc",
-                        "attorney_name": "Raj Abhyanker",
-                        "attorney_name_cleaned": "raj abhyanker",
-                        "current_owner": "Abhyanker, Raj",
-                        "current_owner_cleaned": "abhyanker raj",
-                        "mark_description_code": [
-                            "GS0451",
-                            "GS0451"
-                        ],
-                        "mark_description_description": [
-                            "Providing trademark searching services",
-                            "Providing trademark searching services"
-                        ],
-                        "first_use_anywhere_date": 20090615,
-                        "class_codes": [
-                            "045",
-                            "045"
-                        ],
-                        "country": "US",
-                        "is_lrapc": true,
-                        "owner_location": {
-                            "lat": 18.36977,
-                            "lon": -66.269361
-                        },
-                        "mark_status_key": -40
                     }
                 }
             ],
-            "max_score": 6.9960556,
+            "max_score": 6.643729,
             "total": {
                 "relation": "eq",
-                "value": 4
+                "value": 30000
             }
         },
         "_shards": {
@@ -337,7 +1046,7 @@
             "total": 3
         },
         "timed_out": false,
-        "took": 49
+        "took": 1934
     },
     "msg": "ok"
 }

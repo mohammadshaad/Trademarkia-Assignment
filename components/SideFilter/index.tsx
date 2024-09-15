@@ -5,13 +5,22 @@ import Image from 'next/image';
 import searchIcon from '@/public/icons/search.svg';
 import { SideFilterProps } from '@/types/SideFilterProps';
 
+const statusOptions = [
+  { label: 'All', value: 'all' },
+  { label: 'Registered', value: 'registered' },
+  { label: 'Pending', value: 'pending' },
+  { label: 'Abandoned', value: 'abandoned' },
+  { label: 'Others', value: 'others' },
+];
+
 const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, onFilterChange }) => {
   const [selectedOption, setSelectedOption] = useState('Owners');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({
     Owners: [],
     LawFirms: [],
-    Attorneys: []
+    Attorneys: [],
+    Status: []
   });
 
   useEffect(() => {
@@ -25,19 +34,30 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
       : attorneys;
 
   const handleCheckboxChange = (name: string) => {
-    setSelectedFilters((prevFilters) => {
+    setSelectedFilters(prevFilters => {
       const updatedFilters = {
         ...prevFilters,
         [selectedOption]: prevFilters[selectedOption]?.includes(name)
-          ? prevFilters[selectedOption].filter((filter) => filter !== name)
+          ? prevFilters[selectedOption].filter(filter => filter !== name)
           : [...(prevFilters[selectedOption] || []), name],
       };
-      console.log('Updated Filters:', updatedFilters); // Debugging
       return updatedFilters;
     });
   };
 
-  const filteredOptions = filterOptions.filter((option) =>
+  const handleStatusChange = (status: string) => {
+    setSelectedFilters(prevFilters => {
+      const updatedStatus = prevFilters.Status.includes(status)
+        ? prevFilters.Status.filter(item => item !== status)
+        : [...prevFilters.Status, status];
+      return {
+        ...prevFilters,
+        Status: updatedStatus
+      };
+    });
+  };
+
+  const filteredOptions = filterOptions.filter(option =>
     option.name_cleaned.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -46,19 +66,28 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
       <div className='flex items-start justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
         <div className='text-base font-gilroyBold text-textBlack'>Status</div>
         <div className='font-gilroySemibold text-base flex items-center justify-start gap-2 flex-wrap'>
-          <div className='bg-[#EEF4FF] border border-[#4380EC] rounded-2xl px-4 py-2 text-center cursor-pointer'>All</div>
-          <div className='flex items-center justify-center gap-1 border border-[#D1D1D1] px-4 py-2 rounded-2xl cursor-pointer'>
-            <div className="bg-[#52B649] rounded-full w-2 h-2"></div> Registered
-          </div>
-          <div className='flex items-center justify-center gap-1 border border-[#D1D1D1] px-4 py-2 rounded-2xl cursor-pointer'>
-            <div className="bg-[#ECC53C] rounded-full w-2 h-2"></div> Pending
-          </div>
-          <div className='flex items-center justify-center gap-1 border border-[#D1D1D1] px-4 py-2 rounded-2xl cursor-pointer'>
-            <div className="bg-[#EC3C3C] rounded-full w-2 h-2"></div> Abandoned
-          </div>
-          <div className='flex items-center justify-center gap-1 border border-[#D1D1D1] px-4 py-2 rounded-2xl cursor-pointer'>
-            <div className="bg-[#4380EC] rounded-full w-2 h-2"></div> Others
-          </div>
+          {statusOptions.map(({ label, value }) => (
+            <div
+              key={value}
+              onClick={() => handleStatusChange(value)}
+              className={`flex items-center justify-center gap-1 border px-4 py-2 rounded-2xl cursor-pointer ${
+                selectedFilters.Status.includes(value)
+                  ? 'bg-[#EEF4FF] border-[#4380EC]'
+                  : 'border-[#D1D1D1]'
+              }`}
+            >
+              <div
+                className={`rounded-full w-2 h-2 ${
+                  value === 'registered' ? 'bg-[#52B649]' :
+                  value === 'pending' ? 'bg-[#edab2c]' :
+                  value === 'abandoned' ? 'bg-[#EC3C3C]' :
+                  value === 'others' ? 'bg-[#4380EC]' :
+                  'bg-[#D1D1D1]'
+                }`}
+              ></div>
+              {label}
+            </div>
+          ))}
         </div>
       </div>
 

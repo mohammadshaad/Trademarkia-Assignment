@@ -17,7 +17,7 @@ export default function Home() {
   const [attorneys, setAttorneys] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
   const [sortOrder, setSortOrder] = useState<string>('desc');
-  const [error, setError] = useState<string | null>(null); 
+  const [error, setError] = useState<string | null>(null);
   const [errorMessages, setErrorMessages] = useState('');
 
   const handleToggleSideFilter = () => {
@@ -25,10 +25,11 @@ export default function Home() {
   };
 
   const handleFilterChange = useCallback((filters: { [key: string]: string[] }) => {
-    console.log('Filters Changed:', filters); 
+    console.log('Filters Changed:', filters);
     setSelectedFilters(filters);
     filterResults(filters);
-  }, []);
+  }, [searchQuery, sortOrder]);
+
 
   const handleSearchResults = (
     data: SearchResult[],
@@ -77,12 +78,13 @@ export default function Home() {
     filterResults(selectedFilters);
   };
 
+  // pages/index.tsx
   const handleSearch = async (query: string) => {
     const data = {
       input_query: query,
       input_query_type: "",
       sort_by: "default",
-      status: [],
+      status: selectedFilters.Status || [], // Include status in the payload
       exact_match: false,
       date_query: false,
       owners: selectedFilters.Owners || [],
@@ -125,6 +127,7 @@ export default function Home() {
         description: item._source.mark_description_description.join(', '),
         registration_date: item._source.registration_date ? format(fromUnixTime(item._source.registration_date), 'd MMM yyyy') : 'N/A',
         status_date: item._source.status_date ? format(fromUnixTime(item._source.status_date), 'd MMM yyyy') : 'N/A',
+        status_type: item._source.status_type,
         renewal_date: item._source.renewal_date ? format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy') : 'N/A',
         filing_date: item._source.filing_date ? format(fromUnixTime(item._source.filing_date), 'd MMM yyyy') : 'N/A',
         class: item._source.class_codes.join(', '),
@@ -160,6 +163,7 @@ export default function Home() {
       setError(error instanceof Error ? error.message : 'An unknown error occurred');
     }
   };
+
 
   const handleCloseErrorPopup = () => {
     setError(null);

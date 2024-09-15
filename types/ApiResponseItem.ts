@@ -6,6 +6,7 @@ export interface ApiResponseItem {
     registration_number: string;
     registration_date: number;
     status_date: number;
+    status_type: string;
     renewal_date: number;
     filing_date: number;
     class_codes: string[];
