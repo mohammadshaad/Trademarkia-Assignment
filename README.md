@@ -1,72 +1,87 @@
-# Trademarkia
+````markdown
+# Trademark Search Results Table
 
-Welcome to the Trademarkia project! This README provides an overview of the project, how to set it up, and how to contribute.
+This project is a React/Next.js application that displays trademark search results in a tabular format using custom UI components. The table shows the details of trademark marks, their statuses, and descriptions, while also providing visual cues for each trademark's status type.
 
-## Table of Contents
+## Deployed Site
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-Trademarkia is a project designed to help users manage and track trademarks. It provides a user-friendly interface and powerful features to streamline the trademark management process.
+You can view the live application at [https://shaad-trademarkia-frontend.vercel.app/](https://shaad-trademarkia-frontend.vercel.app/).
 
 ## Features
 
-- **Trademark Tracking**: Keep track of your trademarks and their statuses.
-- **Notifications**: Get notified about important updates and deadlines.
-- **Reports**: Generate detailed reports on trademark activities.
-- **User Management**: Manage multiple users with different roles and permissions.
+- **Responsive Table**: Displays search results in a clean, responsive table.
+- **Dynamic Status Labeling**: Trademark statuses are color-coded and labeled based on their status type.
+- **Image Handling**: Trademark marks are displayed as images fetched dynamically from a remote URL.
+- **Description Truncation**: Long descriptions are truncated for a cleaner UI.
+- **Class Display**: Trademark classes are displayed with an icon for better readability.
+
+## Table of Contents
+
+1. [Technologies Used](#technologies-used)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Folder Structure](#folder-structure)
+5. [Contributing](#contributing)
+6. [License](#license)
+
+## Technologies Used
+
+- **React.js**: JavaScript library for building user interfaces.
+- **Next.js**: React framework for server-side rendering and building static websites.
+- **TypeScript**: Superset of JavaScript that adds static typing.
+- **Shadcn UI**: UI component library used for styling table elements.
+- **Tailwind CSS**: Utility-first CSS framework for custom styling.
+- **Image Optimization**: Next.js `Image` component for optimized image rendering.
 
 ## Installation
 
-To get started with Trademarkia, follow these steps:
-
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/yourusername/trademarkia.git
-    ```
-2. Navigate to the project directory:
-    ```bash
-    cd trademarkia
-    ```
-3. Install the dependencies:
-    ```bash
-    npm install
-    ```
 
-## Usage
-
-To start the development server, run:
 ```bash
-npm start
+   git clone https://github.com/mohammadshaad/21BCE1542_Frontend.git
+````
+
+2. Navigate to the project directory:
+
+```bash
+   cd trademark-table
 ```
 
-Open your browser and navigate to `http://localhost:3000` to see the application in action.
+3. Install dependencies:
 
-## Contributing
+```bash
+   npm install
+```
 
-We welcome contributions to Trademarkia! To contribute, please follow these steps:
+4. Start the development server:
 
-1. Fork the repository.
-2. Create a new branch:
-    ```bash
-    git checkout -b feature/your-feature-name
-    ```
-3. Make your changes and commit them:
-    ```bash
-    git commit -m "Add your message here"
-    ```
-4. Push to the branch:
-    ```bash
-    git push origin feature/your-feature-name
-    ```
-5. Create a pull request.
+```bash
+   npm run dev
+```
 
-## License
+   Your application should now be running on [http://localhost:3000](http://localhost:3000).
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Folder Structure
+
+```
+.
+├── components
+│   └── ui
+│       └── table.tsx          # UI components for the table
+│   └── Navbar                 # Navbar component
+│   └── SideFilter             # SideFilter component
+├── hooks
+│   └── use-toast.ts    # Custom hook for showing toast
+├── public
+│   └── icons                  # Icons used in the table
+│   └── images                 # Sample images
+├── types
+│   └── SearchResult.ts        # Type definitions for search results
+│   └── SideFilterProps.ts     # Type definitions for Side Filters
+│   └── ApiResponseItem.ts     # Type definitions for API Response Data Type 
+│   └── AggregationItem.ts     # Type definitions for API Response Data Type 
+├── pages
+│   └── index.tsx              # Entry point of the application
+└── README.md                  # This readme file
+```
