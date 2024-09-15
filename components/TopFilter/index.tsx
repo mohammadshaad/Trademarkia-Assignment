@@ -43,8 +43,9 @@ const TopFilter: React.FC<TopFilterProps> = ({ onFilterClick, isSideFilterVisibl
       <div className='flex items-center justify-between w-full'>
         <div className='flex items-center justify-start gap-4 font-gilroyBold text-grayText'>
           Also try searching for
-          <div className='bg-tertiary px-6 py-1 border border-secondary text-secondary rounded-xl'>
-            {searchQuery}
+          <div className='bg-tertiary px-6 py-1.5 border border-secondary text-secondary rounded-xl'>
+            {/* if search query is empty then don't show anything here  */}
+            {searchQuery == '' ? 'trademarkia' : searchQuery}
           </div>
         </div>
         <div className='flex items-center justify-center gap-4'>
