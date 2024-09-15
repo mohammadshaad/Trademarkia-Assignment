@@ -91,14 +91,14 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
                         return (
                             <TableRow
                                 key={data.id}
-                                className="group !rounded-2xl h-full cursor-pointer"
+                                className="group rounded-2xl  h-full cursor-pointer transition-all duration-200 hover:bg-gray-100"
                                 onClick={() => window.open(`https://www.trademarkia.com/${data.id}`, '_blank')}
                             >
                                 <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
                                     <Image src={`https://static.trademarkia.com/images/${data.id}`} alt="" className="w-auto my-3 mark-shadow" width={4000} height={4000} />
                                 </TableCell>
                                 <TableCell className="h-full">
-                                    <div className="flex items-start justify-between flex-col h-full gap-12">
+                                    <div className="flex items-start justify-between flex-col h-full gap-6 p-4">
                                         <div className="flex flex-col items-start justify-center h-full">
                                             <div className="font-gilroyBold text-lg text-textBlack">{data.name}</div>
                                             <div className="font-gilroyRegular text-base text-textBlack">{data.company}</div>
@@ -110,7 +110,7 @@ export default function ListView({ searchResults, page, rows, totalResults, onPa
                                     </div>
                                 </TableCell>
                                 <TableCell className="h-full">
-                                    <div className="flex items-start justify-between flex-col h-full gap-16">
+                                    <div className="flex items-start justify-between flex-col h-full gap-10">
                                         <div className="flex flex-col items-start justify-center">
                                             <div className="flex items-center justify-center gap-1">
                                                 <div className="rounded-full w-2 h-2" style={{ backgroundColor: color }}></div>
