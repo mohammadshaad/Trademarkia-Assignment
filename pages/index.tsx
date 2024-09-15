@@ -9,9 +9,9 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isSideFilterVisible, setSideFilterVisible] = useState(true);
-  const [owners, setOwners] = useState<{ name: string; count: number; }[]>([]);
-  const [lawFirms, setLawFirms] = useState<{ name: string; count: number; }[]>([]);
-  const [attorneys, setAttorneys] = useState<{ name: string; count: number; }[]>([]);
+  const [owners, setOwners] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
+  const [lawFirms, setLawFirms] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
+  const [attorneys, setAttorneys] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
 
   const handleToggleSideFilter = () => {
@@ -26,9 +26,9 @@ export default function Home() {
   const handleSearchResults = (
     data: SearchResult[],
     query: string,
-    ownersList?: { name: string; count: number; }[],
-    lawFirmsList?: { name: string; count: number; }[],
-    attorneysList?: { name: string; count: number; }[]
+    ownersList?: { name: string; name_cleaned: string; count: number }[],
+    lawFirmsList?: { name: string; name_cleaned: string; count: number }[],
+    attorneysList?: { name: string; name_cleaned: string; count: number }[]
   ) => {
     setSearchResults(data);
     setSearchQuery(query);
@@ -57,6 +57,7 @@ export default function Home() {
     }
 
     setSearchResults(filteredResults);
+    console.log(searchResults);
   };
 
   return (

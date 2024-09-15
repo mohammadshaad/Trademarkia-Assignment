@@ -9,6 +9,7 @@ import { format, fromUnixTime } from 'date-fns';
 
 interface AggregationItem {
   name: string;
+  name_cleaned: string;
   count: number;
 }
 
@@ -75,21 +76,29 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
         renewal_date: item._source.renewal_date ? format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy') : 'N/A',
         filing_date: item._source.filing_date ? format(fromUnixTime(item._source.filing_date), 'd MMM yyyy') : 'N/A',
         class: item._source.class_codes.join(', '),
+        law_firm: item._source.law_firm,
+        law_firm_cleaned: item._source.law_firm_cleaned,
+        attorney_name: item._source.attorney_name,
+        attorney_name_cleaned: item._source.attorney_name_cleaned,
+        current_owner: item._source.current_owner,
+        current_owner_cleaned: item._source.current_owner_cleaned,
       }));
-      
 
       const owners = result.body.aggregations.current_owners?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: bucket.key,
+        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.current_owner_cleaned === bucket.key)?.current_owner,
+        name_cleaned: bucket.key,
         count: bucket.doc_count,
       }));
 
       const lawFirms = result.body.aggregations.law_firms?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: bucket.key,
+        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.law_firm_cleaned === bucket.key)?.law_firm,
+        name_cleaned: bucket.key,
         count: bucket.doc_count,
       }));
 
       const attorneys = result.body.aggregations.attorneys?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: bucket.key,
+        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.attorney_name_cleaned === bucket.key)?.attorney_name,
+        name_cleaned: bucket.key,
         count: bucket.doc_count,
       }));
 
