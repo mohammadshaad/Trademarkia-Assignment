@@ -6,7 +6,7 @@ import SideFilter from "@/components/SideFilter";
 import ErrorPopup from "@/components/ErrorPopup"; // Import the new ErrorPopup component
 import { SearchResult } from '@/types/SearchResult';
 import { ApiResponseItem } from '@/types/ApiResponseItem';
-import { format, fromUnixTime } from 'date-fns';
+import { format, fromUnixTime, set } from 'date-fns';
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
@@ -16,8 +16,9 @@ export default function Home() {
   const [lawFirms, setLawFirms] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [attorneys, setAttorneys] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
-  const [sortOrder, setSortOrder] = useState<string>('default');
-  const [error, setError] = useState<string | null>(null); // State for handling errors
+  const [sortOrder, setSortOrder] = useState<string>('desc');
+  const [error, setError] = useState<string | null>(null); 
+  const [errorMessages, setErrorMessages] = useState('');
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
@@ -106,10 +107,12 @@ export default function Home() {
       });
 
       if (response.status === 404) {
+        setErrorMessages('No results found for your query.');
         throw new Error('No results found for your query.');
       }
 
       if (!response.ok) {
+        setErrorMessages(`Failed to fetch data`);
         throw new Error(`Failed to fetch data: ${response.statusText}`);
       }
 
@@ -164,7 +167,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {error && <ErrorPopup message={error} onClose={handleCloseErrorPopup} />}
+      {error && <ErrorPopup message={errorMessages} onClose={handleCloseErrorPopup} />}
       <Navbar onSearch={handleSearch} />
       <TopFilter
         onFilterClick={handleToggleSideFilter}
