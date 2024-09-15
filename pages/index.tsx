@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import TableListView from "@/components/Table/ListView";
 import TableGridView from "@/components/Table/GridView";
@@ -23,6 +23,7 @@ export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [rows, setRows] = useState<number>(10);
   const [totalResults, setTotalResults] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(false); // Loading state
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
@@ -54,6 +55,8 @@ export default function Home() {
       counties: []
     };
 
+    setIsLoading(true); // Set loading state to true
+
     try {
       const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
         method: 'POST',
@@ -64,7 +67,6 @@ export default function Home() {
       });
 
       if (response.status === 404) {
-        // Only set error if searchQuery is not empty
         if (searchQuery) {
           setError('No results found for your query.');
         }
@@ -130,6 +132,8 @@ export default function Home() {
     } catch (error) {
       console.error('Error during search:', error);
       setError(error instanceof Error ? error.message : 'An unknown error occurred');
+    } finally {
+      setIsLoading(false); // Set loading state to false
     }
   };
 
@@ -176,7 +180,17 @@ export default function Home() {
         onSortChange={handleSort}
       />
       <div className="flex flex-col-reverse md:flex-row items-start justify-between w-full px-10 pb-20">
-        {viewType === 'grid' ? (
+        {isLoading ? (
+          <div className="flex items-center justify-center w-full h-full">
+            <p>Loading...</p> {/* You can replace this with a spinner component */}
+          </div>
+        ) : searchResults.length === 0 ? (
+          <div className="flex items-center justify-center w-full h-full">
+            <p className="text-center">
+              No results found. Please enter a search query or apply filters to find trademarks.
+            </p>
+          </div>
+        ) : viewType === 'grid' ? (
           <TableGridView 
             searchResults={searchResults} 
             page={page}
