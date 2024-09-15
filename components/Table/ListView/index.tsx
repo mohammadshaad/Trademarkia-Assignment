@@ -48,9 +48,13 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                     {searchResults?.map((data) => {
                         const { color, label } = getStatusDetails(data.status_type);
                         return (
-                            <TableRow key={data.id} className="group !rounded-2xl h-full">
+                            <TableRow 
+                                key={data.id} 
+                                className="group !rounded-2xl h-full cursor-pointer" 
+                                onClick={() => window.open(`https://www.trademarkia.com/${data.id}`, '_blank')}
+                            >
                                 <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
-                                    <Image src={markImg} alt="" className="w-40 my-3 mark-shadow" />
+                                    <Image src={`https://static.trademarkia.com/images/${data.id}`} alt="" className="w-auto my-3 mark-shadow" width={4000} height={4000} />
                                 </TableCell>
                                 <TableCell className="h-full">
                                     <div className="flex items-start justify-between flex-col h-full gap-12">

@@ -40,7 +40,7 @@ const Navbar: React.FC<NavbarProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className='bg-[#F8FAFE] border-b-4 border-[#EAF1FF] w-full flex items-center justify-start gap-6'>
+    <div className='bg-[#F8FAFE] border-b-4 border-[#EAF1FF] w-full flex md:flex-row flex-col items-center justify-start gap-6'>
       <div className='py-8 px-14'>
         <Image src={logo} alt="Logo" className="w-40" />
       </div>

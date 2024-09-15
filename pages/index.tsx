@@ -86,6 +86,7 @@ export default function Home() {
 
       const result = await response.json();
       const formattedMarkResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
+        id: Number(item._id),
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
@@ -209,7 +210,7 @@ export default function Home() {
         resultsCount={searchResults.length}
         onSortChange={handleSort}
       />
-      <div className="flex items-start justify-between w-full px-10 pb-20">
+      <div className="flex flex-col-reverse md:flex-row items-start justify-between w-full px-10 pb-20">
         {viewType === 'grid' ? (
           <TableGridView searchResults={searchResults} />
         ) : (

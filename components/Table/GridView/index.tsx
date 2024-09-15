@@ -29,9 +29,10 @@ export default function GridView({ searchResults }: { searchResults: SearchResul
             {searchResults?.map((data) => {
                 const { color, label } = getStatusDetails(data.status_type);
                 return (
-                    <div key={data.id} className="bg-white p-4 rounded-lg shadow-lg flex flex-col">
+                    <div key={data.id} onClick={() => window.open(`https://www.trademarkia.com/${data.id}`, '_blank')}
+                        className="bg-white p-4 rounded-lg shadow-lg flex flex-col">
                         <div className="flex items-center justify-center mb-4">
-                            <Image src={markImg} alt="" className="w-24" />
+                            <Image src={`https://static.trademarkia.com/images/${data.id}`} alt="" className="w-auto my-3 mark-shadow" width={4000} height={4000} />
                         </div>
                         <div className="flex flex-col flex-grow">
                             <div className="text-lg font-bold text-textBlack">{data.name}</div>
