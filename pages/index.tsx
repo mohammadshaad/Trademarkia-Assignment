@@ -1,17 +1,16 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Table from "@/components/Table";
 import TopFilter from "@/components/TopFilter";
 import SideFilter from "@/components/SideFilter";
-import ErrorPopup from "@/components/ErrorPopup"; // Import the new ErrorPopup component
+import ErrorPopup from "@/components/ErrorPopup";
 import { SearchResult } from '@/types/SearchResult';
 import { ApiResponseItem } from '@/types/ApiResponseItem';
-import { format, fromUnixTime, set } from 'date-fns';
-import { id } from "date-fns/locale";
+import { format, fromUnixTime } from 'date-fns';
 
 export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>(''); // Default query can be set here
   const [isSideFilterVisible, setSideFilterVisible] = useState(true);
   const [owners, setOwners] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
   const [lawFirms, setLawFirms] = useState<{ name: string; name_cleaned: string; count: number }[]>([]);
@@ -19,16 +18,23 @@ export default function Home() {
   const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({});
   const [sortOrder, setSortOrder] = useState<string>('desc');
   const [error, setError] = useState<string | null>(null);
-  const [errorMessages, setErrorMessages] = useState('');
+
+  useEffect(() => {
+    
+
+    handleSearch('trademarkia'); // Replace 'default query' with your initial query if needed
+  }, []);
 
   const handleToggleSideFilter = () => {
     setSideFilterVisible(prev => !prev);
   };
 
   const handleFilterChange = useCallback(async (filters: { [key: string]: string[] }) => {
-    // console.log('Filters Changed:', filters);
     setSelectedFilters(filters);
+    await fetchResults(filters);
+  }, [searchQuery, sortOrder]);
 
+  const fetchResults = async (filters: { [key: string]: string[] }) => {
     const data = {
       input_query: searchQuery,
       input_query_type: "",
@@ -57,13 +63,17 @@ export default function Home() {
         body: JSON.stringify(data),
       });
 
+      if (response.status === 404) {
+        setError('No results found for your query.');
+        return; // Exit the function early
+      }
+
       if (!response.ok) {
         throw new Error(`Failed to fetch data: ${response.statusText}`);
       }
 
       const result = await response.json();
-      setSearchResults(result.body.hits.hits.map((item: ApiResponseItem) => ({
-        id: item._source._id,
+      const formattedMarkResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
         name: item._source.mark_identification,
         company: item._source.current_owner,
         markId: item._source.registration_number,
@@ -80,13 +90,35 @@ export default function Home() {
         attorney_name_cleaned: item._source.attorney_name_cleaned,
         current_owner: item._source.current_owner,
         current_owner_cleaned: item._source.current_owner_cleaned,
-      })));
+      }));
+
+      const owners = result.body.aggregations.current_owners?.buckets.map((bucket: { key: string; doc_count: number }) => ({
+        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.current_owner_cleaned === bucket.key)?.current_owner || bucket.key,
+        name_cleaned: bucket.key,
+        count: bucket.doc_count,
+      })) || [];
+
+      const lawFirms = result.body.aggregations.law_firms?.buckets.map((bucket: { key: string; doc_count: number }) => ({
+        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.law_firm_cleaned === bucket.key)?.law_firm || bucket.key,
+        name_cleaned: bucket.key,
+        count: bucket.doc_count,
+      })) || [];
+
+      const attorneys = result.body.aggregations.attorneys?.buckets.map((bucket: { key: string; doc_count: number }) => ({
+        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.attorney_name_cleaned === bucket.key)?.attorney_name || bucket.key,
+        name_cleaned: bucket.key,
+        count: bucket.doc_count,
+      })) || [];
+
+      handleSearchResults(formattedMarkResults, searchQuery, owners, lawFirms, attorneys);
+
+      setError(null); // Clear the error if the search is successful
+
     } catch (error) {
-      console.error(error);
+      console.error('Error during search:', error);
+      setError(error instanceof Error ? error.message : 'An unknown error occurred');
     }
-  }, [searchQuery, sortOrder]);
-
-
+  };
 
   const handleSearchResults = (
     data: SearchResult[],
@@ -135,102 +167,16 @@ export default function Home() {
     filterResults(selectedFilters);
   };
 
-  // pages/index.tsx
   const handleSearch = async (query: string) => {
-    const data = {
-      input_query: query,
-      input_query_type: "",
-      sort_by: "default",
-      status: selectedFilters.Status || [],
-      exact_match: false,
-      date_query: false,
-      owners: selectedFilters.Owners || [],
-      attorneys: selectedFilters.Attorneys || [],
-      law_firms: selectedFilters.LawFirms || [],
-      mark_description_description: [],
-      classes: [],
-      page: 1,
-      rows: 10,
-      sort_order: sortOrder,
-      states: [],
-      counties: []
-    };
-
-    console.log(data);
-
-    try {
-      const response = await fetch('https://vit-tm-task.api.trademarkia.app/api/v3/us', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (response.status === 404) {
-        setErrorMessages('No results found for your query.');
-        throw new Error('No results found for your query.');
-      }
-
-      if (!response.ok) {
-        setErrorMessages(`Failed to fetch data`);
-        throw new Error(`Failed to fetch data: ${response.statusText}`);
-      }
-
-      const result = await response.json();
-
-      const formattedMarkResults = result.body.hits.hits.map((item: ApiResponseItem) => ({
-        name: item._source.mark_identification,
-        company: item._source.current_owner,
-        markId: item._source.registration_number,
-        description: item._source.mark_description_description.join(', '),
-        registration_date: item._source.registration_date ? format(fromUnixTime(item._source.registration_date), 'd MMM yyyy') : 'N/A',
-        status_date: item._source.status_date ? format(fromUnixTime(item._source.status_date), 'd MMM yyyy') : 'N/A',
-        status_type: item._source.status_type,
-        renewal_date: item._source.renewal_date ? format(fromUnixTime(item._source.renewal_date), 'd MMM yyyy') : 'N/A',
-        filing_date: item._source.filing_date ? format(fromUnixTime(item._source.filing_date), 'd MMM yyyy') : 'N/A',
-        class: item._source.class_codes.join(', '),
-        law_firm: item._source.law_firm,
-        law_firm_cleaned: item._source.law_firm_cleaned,
-        attorney_name: item._source.attorney_name,
-        attorney_name_cleaned: item._source.attorney_name_cleaned,
-        current_owner: item._source.current_owner,
-        current_owner_cleaned: item._source.current_owner_cleaned,
-      }));
-
-      const owners = result.body.aggregations.current_owners?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.current_owner_cleaned === bucket.key)?.current_owner,
-        name_cleaned: bucket.key,
-        count: bucket.doc_count,
-      }));
-
-      const lawFirms = result.body.aggregations.law_firms?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.law_firm_cleaned === bucket.key)?.law_firm,
-        name_cleaned: bucket.key,
-        count: bucket.doc_count,
-      }));
-
-      const attorneys = result.body.aggregations.attorneys?.buckets.map((bucket: { key: string; doc_count: number }) => ({
-        name: formattedMarkResults.find((item: typeof formattedMarkResults[0]) => item.attorney_name_cleaned === bucket.key)?.attorney_name,
-        name_cleaned: bucket.key,
-        count: bucket.doc_count,
-      }));
-
-      handleSearchResults(formattedMarkResults, query, owners, lawFirms, attorneys);
-    } catch (error) {
-      console.error('Error fetching search results:', error);
-      setError(error instanceof Error ? error.message : 'An unknown error occurred');
-    }
-  };
-
-
-  const handleCloseErrorPopup = () => {
-    setError(null);
+    setSearchQuery(query);
+    await fetchResults(selectedFilters);
   };
 
   return (
     <div className="w-full">
-      {error && <ErrorPopup message={errorMessages} onClose={handleCloseErrorPopup} />}
+      {error && (
+        <ErrorPopup message={error} onClose={() => setError(null)} />
+      )}
       <Navbar onSearch={handleSearch} />
       <TopFilter
         onFilterClick={handleToggleSideFilter}
