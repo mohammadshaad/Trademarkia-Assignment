@@ -71,6 +71,14 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
     option.name_cleaned.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const toTitleCase = (str: string) => {
+    return str
+      .toLowerCase()
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
   return (
     <div className='flex items-center justify-start w-full md:w-1/4 flex-col gap-2'>
       <div className='flex items-start justify-center flex-col gap-1 side-filter-shadow p-4 w-full rounded-2xl'>
@@ -136,7 +144,7 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
                   onCheckedChange={() => handleCheckboxChange(option.name_cleaned)}
                 />
                 <label htmlFor={option.name_cleaned} className="text-sm text-[#313131] font-medium leading-none">
-                  {option.name_cleaned.toUpperCase()} ({option.count})
+                  {toTitleCase(option.name_cleaned)} ({option.count})
                 </label>
               </div>
             ))}
@@ -161,7 +169,6 @@ const SideFilter: React.FC<SideFilterProps> = ({ owners, lawFirms, attorneys, on
               >
                 Grid View
               </TabsTrigger>
-
             </TabsList>
           </Tabs>
         </div>
