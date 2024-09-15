@@ -14,13 +14,10 @@ import markImg from '@/public/images/mark-skeleton.svg';
 import { SearchResult } from '@/types/SearchResult';
 
 export default function Table({ searchResults }: { searchResults: SearchResult[] }) {
-    // Updated maxLength to 50 for better truncation of description
     const truncateText = (text: string, maxLength: number) => {
-        if (text.length <= maxLength) return text;
-        return text.substring(0, maxLength) + '...';
+        return text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
     };
 
-    // Function to determine the status color and label
     const getStatusDetails = (status: string) => {
         switch (status) {
             case 'registered':
@@ -29,10 +26,10 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                 return { color: '#edab2c', label: 'Pending' };
             case 'abandoned':
                 return { color: '#EC3C3C', label: 'Dead/Abandoned' };
-            case 'others':
-                return { color: '#D1D1D1', label: 'Others' };
+            case 'other':
+                return { color: '#4380EC', label: 'Indifferent' };
             default:
-                return { color: '#D1D1D1', label: 'Unknown' };
+                return { color: '#4380EC', label: 'Indifferent' }; // Default case
         }
     };
 
@@ -48,10 +45,10 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    {searchResults?.map((data, index) => {
+                    {searchResults?.map((data) => {
                         const { color, label } = getStatusDetails(data.status_type);
                         return (
-                            <TableRow key={index} className="group !rounded-2xl h-full">
+                            <TableRow key={data.markId} className="group !rounded-2xl h-full">
                                 <TableCell className="flex items-center justify-center font-medium bg-white group-hover:bg-gray-100 transition-all duration-200">
                                     <Image src={markImg} alt="" className="w-40 my-3 mark-shadow" />
                                 </TableCell>
@@ -82,7 +79,7 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                                 </span>
                                             </div>
                                         </div>
-                                        {(data.status_type !== 'abandoned' && data.status_type !== 'pending') && (
+                                        {(data.status_type !== 'other' && data.status_type !== 'abandoned' && data.status_type !== 'pending') && (
                                             <div className="flex items-start justify-center gap-1">
                                                 <Image src={refresh} alt="" className="w-4" />
                                                 <div className="text-xs font-gilroyBold text-textBlack">{data.renewal_date}</div>
