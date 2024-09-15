@@ -4,390 +4,386 @@
             "attorneys": {
                 "buckets": [
                     {
-                        "doc_count": 576,
+                        "doc_count": 108,
                         "key": "raj abhyanker"
                     },
                     {
-                        "doc_count": 316,
+                        "doc_count": 104,
                         "key": "christopher j day"
                     },
                     {
-                        "doc_count": 219,
-                        "key": "matthew h swyers"
-                    },
-                    {
-                        "doc_count": 169,
-                        "key": "lawrence e abelman"
-                    },
-                    {
-                        "doc_count": 138,
+                        "doc_count": 81,
                         "key": "joshua m gerben esq"
                     },
                     {
-                        "doc_count": 133,
-                        "key": "xavier morales"
+                        "doc_count": 69,
+                        "key": "adriano pacifici"
                     },
                     {
-                        "doc_count": 113,
-                        "key": "molly buck richard"
-                    },
-                    {
-                        "doc_count": 106,
-                        "key": "monica b richman"
-                    },
-                    {
-                        "doc_count": 106,
-                        "key": "william h brewster"
-                    },
-                    {
-                        "doc_count": 102,
+                        "doc_count": 67,
                         "key": "michael markos"
+                    },
+                    {
+                        "doc_count": 67,
+                        "key": "peter nussbaum"
+                    },
+                    {
+                        "doc_count": 62,
+                        "key": "rosezena j pierce"
+                    },
+                    {
+                        "doc_count": 61,
+                        "key": "thomas dunlap"
+                    },
+                    {
+                        "doc_count": 52,
+                        "key": "rebecca liebowitz"
+                    },
+                    {
+                        "doc_count": 46,
+                        "key": "marek krizka"
                     }
                 ],
-                "doc_count_error_upper_bound": 90,
-                "sum_other_doc_count": 114318
+                "doc_count_error_upper_bound": 46,
+                "sum_other_doc_count": 36539
             },
             "class_codes": {
                 "buckets": [
                     {
-                        "doc_count": 23422,
-                        "key": "035"
-                    },
-                    {
-                        "doc_count": 21870,
+                        "doc_count": 7881,
                         "key": "041"
                     },
                     {
-                        "doc_count": 18127,
+                        "doc_count": 7625,
+                        "key": "035"
+                    },
+                    {
+                        "doc_count": 4828,
                         "key": "025"
                     },
                     {
-                        "doc_count": 15071,
-                        "key": "042"
-                    },
-                    {
-                        "doc_count": 14312,
+                        "doc_count": 4128,
                         "key": "009"
                     },
                     {
-                        "doc_count": 13001,
-                        "key": "016"
+                        "doc_count": 3885,
+                        "key": "042"
                     },
                     {
-                        "doc_count": 11609,
+                        "doc_count": 3680,
                         "key": "036"
                     },
                     {
-                        "doc_count": 6719,
-                        "key": "030"
+                        "doc_count": 2823,
+                        "key": "016"
                     },
                     {
-                        "doc_count": 6718,
-                        "key": "028"
-                    },
-                    {
-                        "doc_count": 5707,
+                        "doc_count": 2307,
                         "key": "044"
                     },
                     {
-                        "doc_count": 5561,
-                        "key": "003"
-                    },
-                    {
-                        "doc_count": 5439,
+                        "doc_count": 1952,
                         "key": "037"
                     },
                     {
-                        "doc_count": 4769,
+                        "doc_count": 1942,
                         "key": "043"
                     },
                     {
-                        "doc_count": 4631,
-                        "key": "005"
+                        "doc_count": 1869,
+                        "key": "030"
                     },
                     {
-                        "doc_count": 4377,
+                        "doc_count": 1814,
                         "key": "045"
                     },
                     {
-                        "doc_count": 4155,
+                        "doc_count": 1607,
+                        "key": "003"
+                    },
+                    {
+                        "doc_count": 1588,
+                        "key": "028"
+                    },
+                    {
+                        "doc_count": 1280,
                         "key": "021"
                     },
                     {
-                        "doc_count": 4009,
+                        "doc_count": 1219,
                         "key": "039"
                     },
                     {
-                        "doc_count": 3570,
-                        "key": "020"
+                        "doc_count": 1217,
+                        "key": "005"
                     },
                     {
-                        "doc_count": 3325,
-                        "key": "029"
-                    },
-                    {
-                        "doc_count": 2926,
-                        "key": "032"
-                    },
-                    {
-                        "doc_count": 2890,
-                        "key": "014"
-                    },
-                    {
-                        "doc_count": 2691,
-                        "key": "038"
-                    },
-                    {
-                        "doc_count": 2680,
-                        "key": "018"
-                    },
-                    {
-                        "doc_count": 2545,
+                        "doc_count": 988,
                         "key": "033"
                     },
                     {
-                        "doc_count": 2359,
+                        "doc_count": 874,
+                        "key": "029"
+                    },
+                    {
+                        "doc_count": 857,
+                        "key": "020"
+                    },
+                    {
+                        "doc_count": 816,
+                        "key": "018"
+                    },
+                    {
+                        "doc_count": 792,
                         "key": "040"
                     },
                     {
-                        "doc_count": 2240,
-                        "key": "011"
+                        "doc_count": 786,
+                        "key": "032"
                     },
                     {
-                        "doc_count": 2122,
-                        "key": "010"
+                        "doc_count": 756,
+                        "key": "014"
                     },
                     {
-                        "doc_count": 2031,
+                        "doc_count": 727,
                         "key": "007"
                     },
                     {
-                        "doc_count": 1921,
-                        "key": "012"
+                        "doc_count": 687,
+                        "key": "011"
                     },
                     {
-                        "doc_count": 1867,
+                        "doc_count": 659,
+                        "key": "010"
+                    },
+                    {
+                        "doc_count": 593,
                         "key": "006"
                     },
                     {
-                        "doc_count": 1713,
+                        "doc_count": 563,
+                        "key": "012"
+                    },
+                    {
+                        "doc_count": 542,
                         "key": "031"
                     },
                     {
-                        "doc_count": 1605,
-                        "key": "024"
+                        "doc_count": 533,
+                        "key": "038"
                     },
                     {
-                        "doc_count": 1552,
+                        "doc_count": 458,
                         "key": "001"
                     },
                     {
-                        "doc_count": 1287,
+                        "doc_count": 436,
+                        "key": "024"
+                    },
+                    {
+                        "doc_count": 368,
                         "key": "019"
                     },
                     {
-                        "doc_count": 997,
+                        "doc_count": 316,
                         "key": "008"
                     },
                     {
-                        "doc_count": 910,
-                        "key": "034"
-                    },
-                    {
-                        "doc_count": 904,
-                        "key": "026"
-                    },
-                    {
-                        "doc_count": 894,
+                        "doc_count": 305,
                         "key": "004"
                     },
                     {
-                        "doc_count": 663,
+                        "doc_count": 262,
+                        "key": "034"
+                    },
+                    {
+                        "doc_count": 215,
+                        "key": "026"
+                    },
+                    {
+                        "doc_count": 204,
                         "key": "017"
                     },
                     {
-                        "doc_count": 600,
-                        "key": "022"
-                    },
-                    {
-                        "doc_count": 578,
-                        "key": "002"
-                    },
-                    {
-                        "doc_count": 419,
+                        "doc_count": 146,
                         "key": "013"
                     },
                     {
-                        "doc_count": 412,
+                        "doc_count": 142,
+                        "key": "002"
+                    },
+                    {
+                        "doc_count": 138,
+                        "key": "022"
+                    },
+                    {
+                        "doc_count": 134,
                         "key": "027"
                     },
                     {
-                        "doc_count": 390,
+                        "doc_count": 75,
+                        "key": "015"
+                    },
+                    {
+                        "doc_count": 52,
                         "key": "023"
                     },
                     {
-                        "doc_count": 305,
-                        "key": "046"
-                    },
-                    {
-                        "doc_count": 249,
-                        "key": "015"
+                        "doc_count": 51,
+                        "key": "B"
                     }
                 ],
                 "doc_count_error_upper_bound": 0,
-                "sum_other_doc_count": 1268
+                "sum_other_doc_count": 160
             },
             "country": {
                 "buckets": [
                     {
-                        "doc_count": 89138,
+                        "doc_count": 23799,
                         "key": ""
                     },
                     {
-                        "doc_count": 59287,
+                        "doc_count": 15431,
                         "key": "US"
                     },
                     {
-                        "doc_count": 6191,
+                        "doc_count": 2027,
                         "key": "United States"
                     },
                     {
-                        "doc_count": 2721,
-                        "key": "CA"
-                    },
-                    {
-                        "doc_count": 1349,
+                        "doc_count": 802,
                         "key": "CN"
                     },
                     {
-                        "doc_count": 1203,
+                        "doc_count": 778,
+                        "key": "CA"
+                    },
+                    {
+                        "doc_count": 430,
                         "key": "GB"
                     },
                     {
-                        "doc_count": 886,
-                        "key": "FR"
-                    },
-                    {
-                        "doc_count": 789,
+                        "doc_count": 326,
                         "key": "JP"
                     },
                     {
-                        "doc_count": 744,
+                        "doc_count": 274,
+                        "key": "FR"
+                    },
+                    {
+                        "doc_count": 256,
                         "key": "AU"
                     },
                     {
-                        "doc_count": 722,
-                        "key": "DE"
+                        "doc_count": 242,
+                        "key": "IT"
                     }
                 ],
-                "doc_count_error_upper_bound": 162,
-                "sum_other_doc_count": 7398
+                "doc_count_error_upper_bound": 47,
+                "sum_other_doc_count": 2662
             },
             "current_owners": {
                 "buckets": [
                     {
-                        "doc_count": 199,
-                        "key": "mattel inc"
-                    },
-                    {
-                        "doc_count": 129,
-                        "key": "anheuserbusch incorporated"
-                    },
-                    {
-                        "doc_count": 123,
-                        "key": "buildabear retail management inc"
-                    },
-                    {
-                        "doc_count": 118,
+                        "doc_count": 56,
                         "key": "abercrombie & fitch trading co"
                     },
                     {
-                        "doc_count": 109,
-                        "key": "mars incorporated"
+                        "doc_count": 45,
+                        "key": "e & j gallo winery"
                     },
                     {
-                        "doc_count": 99,
+                        "doc_count": 38,
+                        "key": "philip morris usa inc"
+                    },
+                    {
+                        "doc_count": 33,
+                        "key": "loreal usa sd inc"
+                    },
+                    {
+                        "doc_count": 33,
+                        "key": "uhs of delaware inc"
+                    },
+                    {
+                        "doc_count": 31,
+                        "key": "anheuserbusch llc"
+                    },
+                    {
+                        "doc_count": 29,
+                        "key": "petsmart home office llc"
+                    },
+                    {
+                        "doc_count": 28,
+                        "key": "a&e television networks llc"
+                    },
+                    {
+                        "doc_count": 27,
                         "key": "disney enterprises inc"
                     },
                     {
-                        "doc_count": 91,
-                        "key": "western publishing company inc"
-                    },
-                    {
-                        "doc_count": 90,
-                        "key": "pepsico inc"
-                    },
-                    {
-                        "doc_count": 89,
-                        "key": "twentieth century fox film corporation"
-                    },
-                    {
-                        "doc_count": 88,
-                        "key": "johnson & johnson"
+                        "doc_count": 25,
+                        "key": "avanti press inc"
                     }
                 ],
-                "doc_count_error_upper_bound": 54,
-                "sum_other_doc_count": 168899
+                "doc_count_error_upper_bound": 21,
+                "sum_other_doc_count": 46667
             },
             "law_firms": {
                 "buckets": [
                     {
-                        "doc_count": 4666,
-                        "key": ""
-                    },
-                    {
-                        "doc_count": 867,
-                        "key": "legalforce rapc worldwide pc"
-                    },
-                    {
-                        "doc_count": 522,
+                        "doc_count": 419,
                         "key": "lz legal services llc"
                     },
                     {
-                        "doc_count": 271,
-                        "key": "christopher j day"
+                        "doc_count": 256,
+                        "key": "legalforce rapc worldwide pc"
                     },
                     {
-                        "doc_count": 261,
+                        "doc_count": 162,
                         "key": "greenberg traurig llp"
                     },
                     {
-                        "doc_count": 196,
-                        "key": "matthew h swyers"
-                    },
-                    {
-                        "doc_count": 171,
+                        "doc_count": 108,
                         "key": "kilpatrick townsend  stockton llp"
                     },
                     {
-                        "doc_count": 170,
+                        "doc_count": 99,
+                        "key": "rj pierce law group pc"
+                    },
+                    {
+                        "doc_count": 96,
+                        "key": "barnes  thornburg llp"
+                    },
+                    {
+                        "doc_count": 93,
+                        "key": "foley  lardner llp"
+                    },
+                    {
+                        "doc_count": 86,
                         "key": "holland  hart llp"
                     },
                     {
-                        "doc_count": 154,
-                        "key": "wood herron  evans llp"
+                        "doc_count": 82,
+                        "key": "christopher j day"
                     },
                     {
-                        "doc_count": 144,
-                        "key": "dorsey  whitney llp"
+                        "doc_count": 79,
+                        "key": "snell  wilmer llp"
                     }
                 ],
-                "doc_count_error_upper_bound": 101,
-                "sum_other_doc_count": 162827
+                "doc_count_error_upper_bound": 58,
+                "sum_other_doc_count": 45493
             },
             "office_actions": {
                 "buckets": [
                     {
-                        "doc_count": 1484,
+                        "doc_count": 1310,
                         "key": "RSOU"
                     },
                     {
                         "doc_count": 1077,
                         "key": "OA"
-                    },
-                    {
-                        "doc_count": 291,
-                        "key": "ROA"
                     }
                 ],
                 "doc_count_error_upper_bound": 0,
@@ -399,10 +395,10 @@
                 {
                     "_id": "87935101",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1726099200000
                     ],
                     "_source": {
@@ -460,10 +456,10 @@
                 {
                     "_id": "86394084",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1724889600000
                     ],
                     "_source": {
@@ -527,10 +523,10 @@
                 {
                     "_id": "98149505",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1724112000000
                     ],
                     "_source": {
@@ -589,10 +585,10 @@
                 {
                     "_id": "76530123",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1723766400000
                     ],
                     "_source": {
@@ -654,10 +650,10 @@
                 {
                     "_id": "97629032",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1723507200000
                     ],
                     "_source": {
@@ -720,10 +716,10 @@
                 {
                     "_id": "97680228",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1723507200000
                     ],
                     "_source": {
@@ -783,10 +779,10 @@
                 {
                     "_id": "90576035",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1722902400000
                     ],
                     "_source": {
@@ -853,10 +849,10 @@
                 {
                     "_id": "98113990",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1722902400000
                     ],
                     "_source": {
@@ -910,10 +906,10 @@
                 {
                     "_id": "87923663",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1722556800000
                     ],
                     "_source": {
@@ -973,10 +969,10 @@
                 {
                     "_id": "86087999",
                     "_index": "us_search_v3",
-                    "_score": 6.643729,
+                    "_score": 6.7052994,
                     "sort": [
                         "registered",
-                        6.643729,
+                        6.7052994,
                         1722556800000
                     ],
                     "_source": {
@@ -1033,7 +1029,7 @@
                     }
                 }
             ],
-            "max_score": 6.643729,
+            "max_score": 6.7052994,
             "total": {
                 "relation": "eq",
                 "value": 30000
@@ -1046,7 +1042,7 @@
             "total": 3
         },
         "timed_out": false,
-        "took": 1934
+        "took": 2428
     },
     "msg": "ok"
 }

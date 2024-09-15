@@ -84,7 +84,7 @@ export default function Home() {
       input_query: query,
       input_query_type: "",
       sort_by: "default",
-      status: selectedFilters.Status || [], // Include status in the payload
+      status: selectedFilters.Status || [], 
       exact_match: false,
       date_query: false,
       owners: selectedFilters.Owners || [],

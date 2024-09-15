@@ -82,10 +82,12 @@ export default function Table({ searchResults }: { searchResults: SearchResult[]
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="flex items-start justify-center gap-1">
-                                            <Image src={refresh} alt="" className="w-4" />
-                                            <div className="text-xs font-gilroyBold text-textBlack">{data.renewal_date}</div>
-                                        </div>
+                                        {(data.status_type !== 'abandoned' && data.status_type !== 'pending') && (
+                                            <div className="flex items-start justify-center gap-1">
+                                                <Image src={refresh} alt="" className="w-4" />
+                                                <div className="text-xs font-gilroyBold text-textBlack">{data.renewal_date}</div>
+                                            </div>
+                                        )}
                                     </div>
                                 </TableCell>
                                 <TableCell>
