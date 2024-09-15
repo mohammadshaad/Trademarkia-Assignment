@@ -1,4 +1,3 @@
-````markdown
 # Trademark Search Results Table
 
 This project is a React/Next.js application that displays trademark search results in a tabular format using custom UI components. The table shows the details of trademark marks, their statuses, and descriptions, while also providing visual cues for each trademark's status type.
